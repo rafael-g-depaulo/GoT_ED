@@ -16,6 +16,11 @@ legenda:
 [inc] = pensando em como vai funcionar
 [] = livre, ninguem ta trabalhando nisso 
 
+Básico/implementação:
+    - [R L dev] estruturas (character, player, log...)
+    - [] árvore e suas funções
+    - [R L dev] listas e suas funções
+
 [] Setup
     "inicializa e aloca a arvore e as listas"
 
@@ -31,7 +36,8 @@ legenda:
     - [] ler arquivo
     - [] Setup
 
-[] Ler arquivo:
+[L dev] Ler arquivo
+
 [] Guerra:
     "enquanto player vivo, chamar fight round"
     - [] fight round
@@ -45,3 +51,6 @@ legenda:
      cria o log, insere o log. se player perdeu, matar o player"
     - [] selecStat_CPU
     - [] selecStat_Player
+
+[R inc] random:
+    "retorna um numero aleatorio inteiro entre os dois inteiros entrados como parametros"
