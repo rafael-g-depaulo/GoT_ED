@@ -1,13 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "characters.h"
-#include "lists.h"
+//#include "lists.h"
 
 
-void aloca_personagens(cList* list) {
+void aloca_personagens() {
 
-	FILE* arquivo = fopen(personagens.txt, "r");
+	//cList lista = (char*) malloc(sizeof(char) * STR_SIZE);
+	FILE* arquivo = fopen("personagens.txt", "r");
+	if (arquivo == NULL) {
+		printf("Erro na leitura do arquivo!\n");
+		exit(-1);
+	}
 
 	char* name = (char*) malloc(sizeof(char) * STR_SIZE);
 	char* house = (char*) malloc(sizeof(char) * STR_SIZE);
@@ -16,22 +22,25 @@ void aloca_personagens(cList* list) {
 	int i = 0;
 
 	while (fscanf(arquivo, "%[^,], ", name) 		+
-		fscanf(arquivo, "%[^,], ", house) 		+
-		fscanf(arquivo, "%d, ", &agility) 		+
-		fscanf(arquivo, "%d, ", &strength) 		+
-		fscanf(arquivo, "%d, ", &intelligence) 	+
-		fscanf(arquivo, "%d", &health) 		   == 6) {
+			fscanf(arquivo, "%[^,], ", house) 		+
+			fscanf(arquivo, "%d, ", &agility) 		+
+			fscanf(arquivo, "%d, ", &strength) 		+
+			fscanf(arquivo, "%d, ", &intelligence) 	+
+			fscanf(arquivo, "%d\n", &health)        == 6) {
 
+		//cPush(lista, character_create(name, house, agility, strength, intelligence, health));
 		printf("ELEMENTO %d\n", i);
-		printf("%s\n%s\n");
-		}
-			/*
-			fclose(arquivo);
-			printf("\nERRO: erro na leitura de personagens.txt");
-			exit(-2);
-			*/
-	fclose(arquivo);
+		printf("%s\n%s\n", name, house);
+		printf("%d\n%d\n%d\n%d\n", agility, strength, intelligence, health);
+		i++;
 
+	}
+
+	fclose(arquivo);
+	/**/
+	free(name);
+	free(house);
+	/**/
 }
 
 Character* character_create(char* _name, char* _house, int _agility, int _strength, int _intelligence, int _health) {
@@ -45,8 +54,15 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
 	strcpy(personagem->house, _house);
 	personagem->agility = _agility;
 	personagem->strength = _strength;
-	personagem->intelligente = _intelligence;
+	personagem->intelligence = _intelligence;
 	personagem->health = _health;
 
 	return personagem;
+}
+
+int main() {
+
+	aloca_personagens();
+
+	return 0;
 }
