@@ -63,3 +63,41 @@ void character_free(Character* character) {
 	free(character->house);
 	free(character);
 }
+
+Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
+
+	Character* winner;
+
+	switch(atribute) {
+
+		case 1:
+			if (fighter_one->agility >= fighter_two->agility)
+				winner = fighter_one;
+			else
+				winner = fighter_two;
+			break;
+
+		case 2:
+			if (fighter_one->strength >= fighter_two->strength)
+				winner = fighter_one;
+			else
+				winner = fighter_two;
+			break;
+		
+		case 3:
+			if (fighter_one->intelligence >= fighter_two->intelligence)
+				winner = fighter_one;
+			else
+				winner = fighter_two;
+			break;
+
+		case 4:
+			if (fighter_one->health >= fighter_two->health)
+				winner = fighter_one;
+			else
+				winner = fighter_two;
+			break;
+	}
+	
+	return winner;
+}

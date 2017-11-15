@@ -34,7 +34,7 @@ typedef struct {
 
 
 /**
- * @brief      Registra as lutas que ocorreram ao longo do torneio.
+ * @brief      Registra as batalhas que ocorreram ao longo do torneio.
  * 
  * Cada elemento t_log guarda informações sobre as lutas passadas,
  * como os personagens envolvidos, a fase em que se enfrentaram
@@ -79,7 +79,12 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
  * @param      character  O personagem a ser apagado
  * @return     Não há retorno.
  */
-
 void character_free(Character* character);
+
+
+
+Character* fight(Character* fighter_one, Character* fighter_two, int atribute);
+
+
 
 #endif
