@@ -19,7 +19,7 @@ legenda:
 Básico/implementação:
     - [R L dev] estruturas (character, player, log...)
     - [] árvore e suas funções
-    - [R L dev] listas e suas funções
+    - [R dev] listas e suas funções
 
 [] Setup
     "inicializa e aloca a arvore e as listas"
@@ -29,14 +29,15 @@ Básico/implementação:
     - [] guerra
     - [] selecao de personagem
     - [] reset player
-    - [] ler arquivo
+    - [L ok!] ler arquivo
     - [] war log
+    - [] arte gráfica com printf
 
 [] Selecao de personagem:
     - [] ler arquivo
     - [] Setup
 
-[L dev] Ler arquivo
+[L ok!] Ler arquivo
 
 [] Guerra:
     "enquanto player vivo, chamar fight round"

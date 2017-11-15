@@ -8,6 +8,9 @@
 
 #define STR_SIZE 70
 
+/**
+ * @brief      A principal estrutura do jogo, que guarda as informações de cada carta.
+ */
 typedef struct {
 	char* name;
 	char* house;
@@ -20,21 +23,22 @@ typedef struct {
 
 
 /**
- * @brief      É o ID do jogador (P1) ao longo do torneio.
+ * @brief      É a estrutura que representa a carta do jogador (P1) ao longo do torneio.
  */
 typedef struct {
 	Character* player;
 	bool alive;
+	//stat used_stat;
 
 } t_player;
 
 
 /**
- * @brief      É o registro das lutas que ocorreram no torneio.
+ * @brief      Registra as lutas que ocorreram ao longo do torneio.
  * 
  * Cada elemento t_log guarda informações sobre as lutas passadas,
  * como os personagens envolvidos, a fase em que se enfrentaram
- * e o atributo usado.
+ * e o atributo usado na ocasião.
  */
 typedef struct {
 	Character* player1;
@@ -69,5 +73,13 @@ void aloca_personagens();
  */
 Character* character_create(char* _name, char* _house, int _agility, int _strength, int _intelligence, int _health);
 
+/**
+ * @brief      Libera memória referente a um elemento de tipo #Character.
+ *
+ * @param      character  O personagem a ser apagado
+ * @return     Não há retorno.
+ */
+
+void character_free(Character* character);
 
 #endif
