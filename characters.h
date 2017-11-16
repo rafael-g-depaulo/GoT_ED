@@ -3,10 +3,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stdbool.h>
 
 #define STR_SIZE 70
+
 
 /**
  * @brief      A principal estrutura do jogo, que guarda as informações de cada carta.
@@ -21,6 +21,15 @@ typedef struct {
 
 } Character;
 
+/**
+ * @brief      Enumeração dos atributos dos personagens.
+ */
+typedef enum attributes {
+	AGILITY = 1,
+	STRENGTH,
+	INTELLIGENCE,
+	HEALTH
+} Stat;
 
 /**
  * @brief      É a estrutura que representa a carta do jogador (P1) ao longo do torneio.
@@ -28,7 +37,7 @@ typedef struct {
 typedef struct {
 	Character* player;
 	bool alive;
-	//stat used_stat;
+	Stat last_used;
 
 } t_player;
 
@@ -44,12 +53,12 @@ typedef struct {
 	Character* player1;
 	Character* player2;
 	int round;
-	//stat atributo;
+	Stat used_attr;
 
 } t_log;
 
 /**
- * @brief      Lê o arquivo dos personagens e os armazena numa lista duplamente encadeada.
+ * @brief      Lê o arquivo dos personagens e os armazena numa lista circular duplamente encadeada.
  * 
  * Depois de armazenar as informações de cada personagem em variáveis
  * locais, usa a função character_create para criar elementos do tipo Character
@@ -69,7 +78,7 @@ void aloca_personagens();
  * @param[in]  _intelligence  Sua inteligência
  * @param[in]  _health        Sua saúde
  *
- * @return     Um ponteiro do elemento criado.
+ * @return     O endereço do elemento criado.
  */
 Character* character_create(char* _name, char* _house, int _agility, int _strength, int _intelligence, int _health);
 
@@ -81,10 +90,18 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
  */
 void character_free(Character* character);
 
-
-
+/**
+ * @brief      Compara um mesmo atributo entre duas cartas e determina o vencedor da batalha.
+ *
+ * @param      fighter_one  O lutador da esquerda
+ * @param      fighter_two  O lutador da direita
+ * @param[in]  atribute     O atributo usado no confronto
+ *
+ * @return     O endereço do personagem vencedor.
+ * @see #Character
+ * @see #Stat
+ */
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute);
-
 
 
 #endif

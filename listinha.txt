@@ -17,27 +17,27 @@ legenda:
 [] = livre, ninguem ta trabalhando nisso 
 
 Básico/implementação:
-    - [R L dev] estruturas (character, player, log...)
+    - [R L test] estruturas (character, player, log...)
     - [] árvore e suas funções
-    - [R dev] listas e suas funções
+    - [R test] listas e suas funções
 
 [] Setup
     "inicializa e aloca a arvore e as listas"
 
 [] Jogo:
     - [] setup
-    - [] guerra
+    - [L test] ler arquivo
     - [] selecao de personagem
-    - [] reset player
-    - [L ok!] ler arquivo
+    - [] guerra
     - [] war log
+    - [] reset player
     - [] arte gráfica com printf
 
 [] Selecao de personagem:
     - [] ler arquivo
     - [] Setup
 
-[L ok!] Ler arquivo
+[L test] Ler arquivo
 
 [] Guerra:
     "enquanto player vivo, chamar fight round"
@@ -45,9 +45,9 @@ Básico/implementação:
 
 [] fight round:
     "if left empty { fight round(left) fight round(right) } else { fight }"
-    - [] fight
+    - [L dev] fight
 
-[] fight:
+[L dev] fight:
     "seleciona stat (random ou player escolhe), devide vencedor. posiciona vencedor.
      cria o log, insere o log. se player perdeu, matar o player"
     - [] selecStat_CPU
