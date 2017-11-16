@@ -1,0 +1,57 @@
+exemplo de uso:
+
+[R ok!] nome:
+    "descrição"
+    - [L ok!] dependencia 1
+    - [R test] dependencia 2
+    - [L inc] dependencia 3
+    - [] dependencia 4
+
+legenda:
+[R] = desenvolvida pelo Rafael (jesus)
+[L] = desenvolvida pelo Luthiery (lutchyman)
+[ok!] = projetada, desenvolvida e testada
+[test] = desenvolvida, em fase de teste
+[dev] = em fase de desenvolvimento. codando
+[inc] = pensando em como vai funcionar
+[] = livre, ninguem ta trabalhando nisso 
+
+Básico/implementação:
+    - [R L test] estruturas (character, player, log...)
+    - [] árvore e suas funções
+    - [R test] listas e suas funções
+
+[] Setup
+    "inicializa e aloca a arvore e as listas"
+
+[] Jogo:
+    - [] setup
+    - [L test] ler arquivo
+    - [] selecao de personagem
+    - [] guerra
+    - [] war log
+    - [] reset player
+    - [] arte gráfica com printf
+
+[] Selecao de personagem:
+    - [] ler arquivo
+    - [] Setup
+
+[L test] Ler arquivo
+
+[] Guerra:
+    "enquanto player vivo, chamar fight round"
+    - [] fight round
+
+[] fight round:
+    "if left empty { fight round(left) fight round(right) } else { fight }"
+    - [L dev] fight
+
+[L dev] fight:
+    "seleciona stat (random ou player escolhe), devide vencedor. posiciona vencedor.
+     cria o log, insere o log. se player perdeu, matar o player"
+    - [] selecStat_CPU
+    - [] selecStat_Player
+
+[R inc] random:
+    "retorna um numero aleatorio inteiro entre os dois inteiros entrados como parametros"

@@ -1,0 +1,6 @@
+Naruto Uzumaki, Konoha, 99, 99, 99, 99
+Nagato, Amegakure, 80, 90, 130, 25
+Zabuza demonio do gás oculto, Kirigakure, 60, 30, 50, 80
+Sakura Haruno, Konoha, 1, 1, 1, 60
+Some random character, Some random village, 20, 30, 40, 50
+Pain, 30, 20, 30
