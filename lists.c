@@ -1,4 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
+#include "characters.h"
 
 /*-----------------------------------------------------------------------------*/
 cList* aloca_circ_list() {
@@ -94,7 +97,7 @@ void lPush(lList* list, void* dado) {
     t_element* ele = (t_element*) malloc(sizeof(t_element));
 
     if (!ele) {
-        priintf("\nERRO: falha na alocacao de memoria em lPush()...");
+        printf("\nERRO: falha na alocacao de memoria em lPush()...");
         exit(-1);
     }
 

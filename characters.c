@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "characters.h"
 #include "lists.h"
+#include "characters.h"
 
 
 cList* aloca_personagens() {
@@ -48,7 +48,8 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
 
 	personagem->name = (char*) malloc(sizeof(char) * STR_SIZE);
 	personagem->house = (char*) malloc(sizeof(char) * STR_SIZE);
-	if (name == NULL || house == NULL) {
+	if (personagem->name == NULL ||
+		personagem->house == NULL  ) {
 		printf("Erro de alocação em character_create()!\n");
 		exit(-1);
 	}

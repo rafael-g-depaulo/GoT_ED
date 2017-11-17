@@ -4,8 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "lists.h"
 
-#define STR_SIZE 70
+#define STR_SIZE 50
 
 
 /**
@@ -66,7 +67,7 @@ typedef struct {
  * 
  * @return     A lista com todos os personagens extraídos.
  */
-void aloca_personagens();
+cList* aloca_personagens();
 
 /**
  * @brief      Cria um elemento de tipo Character contendo as informações obtidas no arquivo.

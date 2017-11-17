@@ -12,8 +12,8 @@
 
  #include <stdlib.h>
  #include <stdbool.h>
+ #include "characters.h"
 
- typedef int Character;
 
 /**
  * @brief elemento da lista duplamente encadeada, circular e linear
@@ -40,7 +40,7 @@ typedef struct {
 } cList;
 
 /**
- * @brief lista circular simplesmente encadeada
+ * @brief lista linear duplamente encadeada
  * 
  * a lista linear é usada para guardar o log das lutas, e guardar a lista de personages jogando, por isso
  * dado é um (void*)
