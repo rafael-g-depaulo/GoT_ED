@@ -18,7 +18,6 @@ typedef struct {
 	int strength;
 	int intelligence;
 	int health;
-
 } Character;
 
 /**
@@ -89,6 +88,15 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
  * @return     Não há retorno.
  */
 void character_free(Character* character);
+
+/**
+ * @brief 		Libera memória referente a um elemento de tipo #Character. (chamando character_free())
+ * 
+ * essa funcao é usada em libera_list()
+ * 
+ * @param character endereco do personagem a ser apagado
+ */
+void f_character(void* character);
 
 /**
  * @brief      Compara um mesmo atributo entre duas cartas e determina o vencedor da batalha.
