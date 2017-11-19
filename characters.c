@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 #include "lists.h"
 #include "characters.h"
@@ -73,46 +74,18 @@ void character_free(Character* character) {
 }
 
 /*****************************************************************************/
-Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
-
-	Character* winner;
-	Stat atr = atribute;
-
-	switch(atr) {
-
-		case AGILITY:
-			if (fighter_one->agility >= fighter_two->agility)
-				winner = fighter_one;
-			else
-				winner = fighter_two;
-			break;
-
-		case STRENGTH:
-			if (fighter_one->strength >= fighter_two->strength)
-				winner = fighter_one;
-			else
-				winner = fighter_two;
-			break;
-		
-		case INTELLIGENCE:
-			if (fighter_one->intelligence >= fighter_two->intelligence)
-				winner = fighter_one;
-			else
-				winner = fighter_two;
-			break;
-
-		case HEALTH:
-			if (fighter_one->health >= fighter_two->health)
-				winner = fighter_one;
-			else
-				winner = fighter_two;
-			break;
-	}
-	
-	return winner;
+void f_character(void* character) {
+	character_free( (Character*) character);
 }
 
 /*****************************************************************************/
-void f_character(void* character) {
-	character_free( (Character*) character);
+t_player* inicializa_player(Character* personagem) {
+
+	t_player* ponteiro = (t_player*) malloc(sizeof(t_player));
+
+	ponteiro->character = personagem;
+	ponteiro->alive = true;
+	ponteiro->last_used = 0;
+
+	return ponteiro;
 }

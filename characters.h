@@ -34,7 +34,7 @@ typedef enum attributes {
  * @brief      É a estrutura que representa a carta do jogador (P1) ao longo do torneio.
  */
 typedef struct {
-	Character* player;
+	Character* character;
 	bool alive;
 	Stat last_used;
 
@@ -59,7 +59,7 @@ typedef struct {
 /**
  * @brief      Lê o arquivo dos personagens e os armazena numa lista circular duplamente encadeada.
  * 
- * Depois de armazenar as informações de cada personagem em variáveis
+ * Depois de armazenar as informações de cada linha em variáveis
  * locais, usa a função character_create para criar elementos do tipo Character
  * enquanto os armazena na lista.
  * 
@@ -98,17 +98,6 @@ void character_free(Character* character);
  */
 void f_character(void* character);
 
-/**
- * @brief      Compara um mesmo atributo entre duas cartas e determina o vencedor da batalha.
- *
- * @param      fighter_one  O lutador da esquerda
- * @param      fighter_two  O lutador da direita
- * @param[in]  atribute     O atributo usado no confronto
- *
- * @return     O endereço do personagem vencedor.
- * @see #Character
- * @see #Stat
- */
-Character* fight(Character* fighter_one, Character* fighter_two, int atribute);
+t_player* inicializa_player(Character* personagem);
 
 #endif /* _PERSONAGENSSKK_ */
