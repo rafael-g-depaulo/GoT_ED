@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include "lists.h"
 #include "characters.h"
+#include "tree.h"
+#include "fight.h"
 
 
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
@@ -45,14 +47,31 @@ Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 }
 
 /*****************************************************************************/
-t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _atributo) {
+void print_player(t_player* player, Character* opponent, int current_round) {
 
-	t_log* elemento = (t_log*) malloc(sizeof(t_log));
+	printf("ROUND %d:\n\n", current_round);
+	printf("Seu personagem: %s da casa %s\n", player->chr->name, player->chr->house);
 
-	elemento->player1 = _player1;
-	elemento->player2 = _player2;
-	elemento->round = _round;
-	elemento->used_attr = _atributo;
+	if (player->last_used == AGILITY)
+		printf("X) X\t: XX\n");
+	else
+		printf("1: Agility\t: %d", player->chr->agility);
 
-	return elemento;
+	if (player->last_used == STRENGTH)
+		printf("X) X\t: XX\n");
+	else
+		printf("2: Strength\t: %d", player->chr->strenth);
+
+	if (player->last_used == INTELLIGENCE)
+		printf("X) X\t: XX\n");
+	else
+		printf("3: Intelligence\t: %d", player->chr->intelligence);
+
+	if (player->last_used == HEALTH)
+		printf("X) X\t: XX\n");
+	else
+		printf("4: Health\t: %d", player->chr->health);
+
+	printf("O adversário: %s da casa %s\n", opponent->name, opponent->house);
+
 }

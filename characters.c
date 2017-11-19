@@ -66,6 +66,35 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
 }
 
 /*****************************************************************************/
+t_player* inicializa_player(Character* personagem) {
+
+	t_player* ponteiro = (t_player*) malloc(sizeof(t_player));
+	if (ponteiro == NULL) {
+		printf("Erro de alocação em inicializa_player()!\n");
+		exit(-1);
+	}
+
+	ponteiro->chr = personagem;
+	ponteiro->alive = true;
+	ponteiro->last_used = 0;
+
+	return ponteiro;
+}
+
+/*****************************************************************************/
+t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _atributo) {
+
+	t_log* elemento = (t_log*) malloc(sizeof(t_log));
+
+	elemento->player1 = _player1;
+	elemento->player2 = _player2;
+	elemento->round = _round;
+	elemento->used_attr = _atributo;
+
+	return elemento;
+}
+
+/*****************************************************************************/
 void character_free(Character* character) {
 
 	free(character->name);
@@ -74,18 +103,13 @@ void character_free(Character* character) {
 }
 
 /*****************************************************************************/
-void f_character(void* character) {
+void libera_character(void* character) {
 	character_free( (Character*) character);
 }
 
 /*****************************************************************************/
-t_player* inicializa_player(Character* personagem) {
+void libera_log(void* log) {
 
-	t_player* ponteiro = (t_player*) malloc(sizeof(t_player));
-
-	ponteiro->character = personagem;
-	ponteiro->alive = true;
-	ponteiro->last_used = 0;
-
-	return ponteiro;
+	t_log* ponteiro = (t_log*) log;
+	free(ponteiro);
 }

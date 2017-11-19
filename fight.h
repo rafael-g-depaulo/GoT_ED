@@ -3,6 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "lists.h"
+#include "characters.h"
+#include "tree.h"
 
 /**
  * @brief      Compara um mesmo atributo entre duas cartas e determina o vencedor da batalha.
@@ -17,7 +20,7 @@
  */
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute);
 
-t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _atributo);
+void print_player(t_player* player, Character* opponent, int current_round);
 
 //EM DESENVOLVIMENTO
 

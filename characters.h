@@ -1,5 +1,5 @@
-#ifndef _PERSONAGENSSKK_
-#define _PERSONAGENSSKK_
+#ifndef _PERSONAGENSS_
+#define _PERSONAGENSS_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,7 +34,7 @@ typedef enum attributes {
  * @brief      É a estrutura que representa a carta do jogador (P1) ao longo do torneio.
  */
 typedef struct {
-	Character* character;
+	Character* chr;
 	bool alive;
 	Stat last_used;
 
@@ -82,6 +82,17 @@ cList* aloca_personagens();
 Character* character_create(char* _name, char* _house, int _agility, int _strength, int _intelligence, int _health);
 
 /**
+ * @brief      Pega o personagem escolhido pelo jogador e o define como Player1.
+ * 
+ * Esse "registro", que nos diz ao longo do jogo quem é o usuário,
+ * nos fornece informações como o atributo usado na última luta.
+ *
+ * @param      personagem  O personagem escolhido;
+ * @return     O endereço da estrutura criada.
+ */
+t_player* inicializa_player(Character* personagem);
+
+/**
  * @brief      Libera memória referente a um elemento de tipo #Character.
  *
  * @param      character  O personagem a ser apagado
@@ -96,8 +107,15 @@ void character_free(Character* character);
  * 
  * @param character endereco do personagem a ser apagado
  */
-void f_character(void* character);
+void libera_character(void* character);
 
-t_player* inicializa_player(Character* personagem);
+/**
+ * @brief      Libera memória referente a um elemento de tipo #t_log.
+ *
+ * @param      log   Registro a ser apagado
+ * @return     Não há retorno.
+ */
+void libera_log(void* log);
 
-#endif /* _PERSONAGENSSKK_ */
+
+#endif /* _PERSONAGENSS_ */
