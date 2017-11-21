@@ -45,3 +45,6 @@ legenda:
      cria o log, insere o log. se player perdeu, matar o player"
     - [] selecStat_CPU
     - [] selecStat_Player
+
+[R inc] random:
+    "retorna um numero aleatorio inteiro entre os dois inteiros entrados como parametros"
