@@ -29,7 +29,7 @@ typedef struct element {
 typedef struct {
     size_t size;            /**< a quantidade de elementos na lista*/
     t_element* first;       /**< ponteiro para um dos elementos*/
-} circ_list;
+} cList;
 
 /**
  * @brief lista circular simplesmente encadeada
@@ -45,7 +45,7 @@ typedef struct {
 typedef struct {
     size_t size;            /**< a quantidade de elementos na lista*/
     t_element* first;       /**< ponteiro para o primeiro elemento*/
-    t_element last;         /**< ponteiro para o ultimo elemento*/
+    t_element* last;        /**< ponteiro para o ultimo elemento*/
 } list;
 
 /**
@@ -53,16 +53,36 @@ typedef struct {
  * 
  * "explicação mais profunda"
  * 
- * @return circ_list* retorna o endereço para a lista alocada dinamicamente
+ * @return cList* retorna o endereço para a lista alocada dinamicamente
  */
-circ_list* aloca_circ_list();
+cList* aloca_circ_list();
 
 /**
  * @brief funcao que libera uma lista circular alocada dinamicamente.
  * 
- * todos os elementos da lista são liberados com pop() antes da lista
+ * todos os elementos da lista são liberados com cPop() antes da lista
  * ser liberada, para garantir que não haja vazamento.
  * 
- * @param cList endereco da lista a ser liberada
+ * @param list endereco da lista a ser liberada
  */
-void libera_circ_list(circ_list* cList);
+void libera_circ_list(cList* list);
+
+/**
+ * @brief remove um elemento da lista circular e rotorna o seu elemento
+ * 
+ * descrição mais detalhada...
+ * 
+ * @param list endereco da lista
+ * @return Character* o endereco do dado do elemento removido da lista 
+ */
+Character* cPop(cList* list);
+
+/**
+ * @brief insere um personagem na lista circular
+ * 
+ * descrição mais detalhada...
+ * 
+ * @param list endereco da lista 
+ * @param pers endereco do personagem a ser inserido
+ */
+void cPush(cList* list, Character* pers);
