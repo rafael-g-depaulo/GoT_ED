@@ -23,12 +23,12 @@ typedef struct element {
  * a lista circular é usada somente para guardar a lista de todos os personagens que existem em personagens.txt, 
  * a natureza circular da lista vai tornar um pouco mais simples a seleção de 16 personagens aletórios.
  * 
- * a lista aponta para um dos elementos, e cada um dos elementos aponta para o proximo elemento e o anterior, de forma
+ * a lista aponta para um dos elementos, e cada um dos elementos aponta para o anterior elemento e o anterior, de forma
  * que a lista possa dar um "loop" em si mesma, conectando o final ao inicio
  */
 typedef struct {
-    size_t size;            /**< a quantidade de elementos na lista*/
-    t_element* first;       /**< ponteiro para um dos elementos*/
+    int size;            /**< a quantidade de elementos na lista*/
+    t_element* last;     /**< ponteiro para o ultimo elemento da fila*/
 } cList;
 
 /**
@@ -43,7 +43,7 @@ typedef struct {
  * 
  */
 typedef struct {
-    size_t size;            /**< a quantidade de elementos na lista*/
+    int size;            /**< a quantidade de elementos na lista*/
     t_element* first;       /**< ponteiro para o primeiro elemento*/
     t_element* last;        /**< ponteiro para o ultimo elemento*/
 } list;
@@ -70,7 +70,10 @@ void libera_circ_list(cList* list);
 /**
  * @brief remove um elemento da lista circular e rotorna o seu elemento
  * 
- * descrição mais detalhada...
+ * o elemento apontado por list->last->prev é removido da lista.
+ * o elemento list->last aponta como seu next o do elemento removido,
+ * e o anterior do elemento removido aponta para list->last.
+ * depois disso list->size é atualizado, é liberada a memoria do elemento removido e e seu dado é retornado 
  * 
  * @param list endereco da lista
  * @return Character* o endereco do dado do elemento removido da lista 
@@ -80,7 +83,9 @@ Character* cPop(cList* list);
 /**
  * @brief insere um personagem na lista circular
  * 
- * descrição mais detalhada...
+ * é criado um elemento contendo pers, e esse elemento é inserido na lista, na posição last. (list->last)
+ * o antigo list->last agora aponta para o novo elemento como seu next. e o novo elemento aponta para o antigo
+ * list->last como seu anterior
  * 
  * @param list endereco da lista 
  * @param pers endereco do personagem a ser inserido
