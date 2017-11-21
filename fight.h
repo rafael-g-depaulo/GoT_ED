@@ -20,7 +20,7 @@
  */
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute);
 
-void print_player(t_player* player, Character* opponent, int current_round);
+void print_player(t_player* player, Character* opponent);
 
 //EM DESENVOLVIMENTO
 

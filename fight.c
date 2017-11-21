@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 #include "lists.h"
 #include "characters.h"
 #include "tree.h"
@@ -47,9 +48,8 @@ Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 }
 
 /*****************************************************************************/
-void print_player(t_player* player, Character* opponent, int current_round) {
+void print_player(t_player* player, Character* opponent) {
 
-	printf("ROUND %d:\n\n", current_round);
 	printf("Seu personagem: %s da casa %s\n", player->chr->name, player->chr->house);
 
 	if (player->last_used == AGILITY)

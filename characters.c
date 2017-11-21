@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <time.h>
 #include "lists.h"
 #include "characters.h"
 
@@ -25,7 +26,7 @@ cList* aloca_personagens() {
 
 	int agility, strength, intelligence, health;
 
-	while (fscanf(arquivo, "%[^,], ", name) 		+
+	while ( fscanf(arquivo, "%[^,], ", name) 		+
 			fscanf(arquivo, "%[^,], ", house) 		+
 			fscanf(arquivo, "%d, ", &agility) 		+
 			fscanf(arquivo, "%d, ", &strength) 		+
@@ -63,6 +64,27 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
 	personagem->health = _health;
 
 	return personagem;
+}
+
+/*****************************************************************************/
+lList* sorteia_personagens(cList* lista_personagens) {
+
+	srand(time(NULL));
+
+	lList* lista_players = aloca_list();
+	Character* atual;
+
+	while (lista_players->size < 16) {
+		
+		atual = getDadoAtIndex(lista_personagens, rand()%lista_personagens->size);
+		if (!hasDado(lista_players, atual)) {
+			lPush(lista_players, atual);
+		}
+	}
+
+	printf("A lista de players alocou %d personagens\n", lista_players->size);
+
+	return lista_players;
 }
 
 /*****************************************************************************/

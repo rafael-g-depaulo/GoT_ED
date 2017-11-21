@@ -81,6 +81,8 @@ cList* aloca_personagens();
  */
 Character* character_create(char* _name, char* _house, int _agility, int _strength, int _intelligence, int _health);
 
+lList* sorteia_personagens(cList* lista_personagens);
+
 /**
  * @brief      Pega o personagem escolhido pelo jogador e o define como Player1.
  * 
