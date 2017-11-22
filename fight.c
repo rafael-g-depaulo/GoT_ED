@@ -60,7 +60,7 @@ void print_player(t_player* player, Character* opponent) {
 	if (player->last_used == STRENGTH)
 		printf("X) X\t: XX\n");
 	else
-		printf("2: Strength\t: %d", player->chr->strenth);
+		printf("2: Strength\t: %d", player->chr->strength);
 
 	if (player->last_used == INTELLIGENCE)
 		printf("X) X\t: XX\n");
@@ -74,4 +74,70 @@ void print_player(t_player* player, Character* opponent) {
 
 	printf("O adversário: %s da casa %s\n", opponent->name, opponent->house);
 
+}
+
+/*-----------------------------------------------------------------------------*/
+void fight_node(t_node* no, t_player* p1, lList* log_list) {
+
+	srand(time(NULL));
+
+	// caso o PC esteja nessa luta
+	if (p1->chr == no->left->character || p1->chr == no->right->character) {
+
+		// pegando o personagem do player e o NPC
+		Character* PC  = p1->chr;
+		Character* NPC;
+
+		if (PC == no->left->character)
+			NPC = no->right->character;
+		else
+			NPC = no->left->character;
+
+		// printar personagem e receber escolha de atributo
+		print_player(PC, NPC);
+
+		// escolha de atributo
+		int atrib = 0;
+		while (true) {
+			printf("\nEscolha um atributo: ");
+			scanf("%d", &atrib);
+			
+			if (atrib == 1 && p1->last_used != AGILITY)
+				break;
+			if (atrib == 2 && p1->last_used != STRENGTH)
+				break;
+			if (atrib == 3 && p1->last_used != INTELLIGENCE)
+				break;
+			if (atrib == 4 && p1->last_used != HEALTH)
+				break;
+
+			printf("\nEscolha invalida. Escolha de novo...");
+		}
+
+		// realize a luta
+		no->character = fight(no->left, no->right, atrib);
+
+	// caso seja uma luta de NPC's
+	} else {
+		int atrib = rand() % 4;
+		no->character = fight(no->left, no->right, atrib);
+	}
+}
+
+/*-----------------------------------------------------------------------------*/
+void fight_round(t_node* tree, t_player* p1, lList* log_list) {
+	
+	// se exitem dois personagens que precisam lutar (condição de parada) 
+	if (tree->left && tree->right && tree->left->character && tree->right->character) {
+		fight_node(tree, p1, log_list);
+		return;
+	}
+
+	// se o no da esquerda existe e esta vazio, percorra ele
+	if (tree->left && !(tree->left->character))
+		fight_round(tree->left, p1, log_list);
+
+	// se o no da direita existe e esta vazio, percorra ele
+	if (tree->right && !(tree->right->character))
+		fight_round(tree->right, p1, log_list);
 }
