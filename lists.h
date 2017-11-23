@@ -7,6 +7,13 @@
  * 
  */
 
+ #ifndef _LISTS_H_
+ #define _LISTS_H_
+
+ #include <stdlib.h>
+
+ typedef int Character;
+
 /**
  * @brief elemento da lista duplamente encadeada, circular e linear
  * 
@@ -28,7 +35,7 @@ typedef struct element {
  */
 typedef struct {
     int size;            /**< a quantidade de elementos na lista*/
-    t_element* last;     /**< ponteiro para o ultimo elemento da fila*/
+    t_element* first;    /**< ponteiro para o primeiro elemento da fila*/
 } cList;
 
 /**
@@ -44,14 +51,19 @@ typedef struct {
  */
 typedef struct {
     int size;            /**< a quantidade de elementos na lista*/
-    t_element* first;       /**< ponteiro para o primeiro elemento*/
-    t_element* last;        /**< ponteiro para o ultimo elemento*/
+    t_element* first;    /**< ponteiro para o primeiro elemento*/
+    t_element* last;     /**< ponteiro para o ultimo elemento*/
 } list;
 
 /**
  * @brief funcao que aloca dinamicamente uma lista circular
  * 
- * "explicação mais profunda"
+ * aloca uma lista circular vazia, com list->size = 0 e list->first = NULL.
+ * exemplo de uso:
+ * 
+ * @code
+ * cList* list = aloca_circ_list();
+ * @endcode
  * 
  * @return cList* retorna o endereço para a lista alocada dinamicamente
  */
@@ -68,26 +80,37 @@ cList* aloca_circ_list();
 void libera_circ_list(cList* list);
 
 /**
- * @brief remove um elemento da lista circular e rotorna o seu elemento
+ * @brief remove um elemento da lista circular e retorna o seu elemento
  * 
- * o elemento apontado por list->last->prev é removido da lista.
- * o elemento list->last aponta como seu next o do elemento removido,
- * e o anterior do elemento removido aponta para list->last.
- * depois disso list->size é atualizado, é liberada a memoria do elemento removido e e seu dado é retornado 
+ * remove list->first, e muda o elemento anterior e posterior a list->first
+ * para apontarem um para o outro e manter a "circularidade" da lista.
+ * muda o elemento apontado por list->first para ser o elemento posterior ao
+ * anterior list->first
+ * também diminui list->size em 1;
  * 
  * @param list endereco da lista
- * @return Character* o endereco do dado do elemento removido da lista 
+ * @return Character* o endereco do dado do elemento removido da lista, ou NULL se a lista estiver vazia 
  */
 Character* cPop(cList* list);
 
 /**
  * @brief insere um personagem na lista circular
  * 
- * é criado um elemento contendo pers, e esse elemento é inserido na lista, na posição last. (list->last)
- * o antigo list->last agora aponta para o novo elemento como seu next. e o novo elemento aponta para o antigo
- * list->last como seu anterior
+ * insere um novo elemento na lista, em uma posição anterior à list->first.
+ * list->first continua apontando para o mersmo elemento. list->first e seu anterior
+ * mudam para apontar para o novo elemento, que aponta para pers
  * 
  * @param list endereco da lista 
  * @param pers endereco do personagem a ser inserido
  */
 void cPush(cList* list, Character* pers);
+
+
+// EM ANDAMENTO ***************************************
+list* aloca_list();
+void lPush(list* list, void* dado);
+void* lPop(list* list);
+void libera_list(list* list);
+// EM ANDAMENTO ***************************************
+
+#endif /* _LISTS_H_ */

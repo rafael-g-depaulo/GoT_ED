@@ -10,7 +10,7 @@ cList* aloca_circ_list() {
     }
 
     list->size = 0;
-    list->last = NULL;
+    list->first = NULL;
 
     return list;
 }
@@ -18,32 +18,37 @@ cList* aloca_circ_list() {
 /*-----------------------------------------------------------------------------*/
 void libera_circ_list(cList* list) {
 
-    while (cPop(list));
+    Character* chr;
+    while (chr = cPop(list))
+        character_free(chr);
 
     free(list);
 }
 
 
 /*-----------------------------------------------------------------------------*/
-
-// incompleto
 Character* cPop(cList* list) {
-    t_element* ele = list->last;
+
+    if (list->size == 0) 
+        return NULL;
+
+    t_element* ele = list->first;
     Character* retVal = (Character*) ele->dado;
 
-    list->last = ele->next;
-    ele->prev->next = ele->next;
-    ele->next->prev = ele->prev;
-
+    if (list->size == 1) {
+        list->first = NULL;
+    } else {
+        list->first->next->prev = list->first->prev;
+        list->first->prev->next = list->first->next;
+        list->first = list->first->next;
+    }
+    
     free(ele);
-
     list->size--;
     return retVal;
 }
 
 /*-----------------------------------------------------------------------------*/
-
-// incompleto
 void cPush(cList* list, Character* pers) {
     t_element* ele = (t_element*) malloc(sizeof(t_element));
 
@@ -51,14 +56,17 @@ void cPush(cList* list, Character* pers) {
         printf("\nERRO: falha na alocacao de memoria em cPush()...");
         exit(-1);
     }
-    
-    ele->dado = pers;
 
-    list->last->next->prev = ele;
-    ele->next = list->last->next;
-    ele->prev = list->last;
-    list->last->next = ele;
-    list->last = ele;
+    if (list->size == 0) {
+        list->first = ele;
+        ele->next = ele;
+        ele->prev = ele;
+    } else {
+        ele->next = list->first;
+        ele->prev = list->first->prev;
+        list->first->prev->next = ele;
+        list->first->prev = ele;
+    }
 
     list->size++;
 }
