@@ -136,7 +136,7 @@ void libera_list(lList* list) {
 Character* getDadoAtIndex(cList* list, int index) {
     if (!list || list->size == 0)
         return NULL;
-        
+
     t_element* ele = list->first;
 
     int i = 0;
@@ -144,4 +144,19 @@ Character* getDadoAtIndex(cList* list, int index) {
         ele = ele->next;
 
     return (Character*) ele->dado;
+}
+
+/*-----------------------------------------------------------------------------*/
+bool hasDado(lList* list, void* dado) {
+    t_element* ele = list->first;
+    bool retVal = false;
+    int i;
+
+    for (i = 1; i < list->size; i++)
+        if (ele->dado == dado) {
+            retVal = true;
+            break;
+        }
+    
+    return retVal;
 }

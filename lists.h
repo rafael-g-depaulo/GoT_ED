@@ -165,8 +165,20 @@ void libera_list(lList* list);
  */
 Character* getDadoAtIndex(cList* list, int index);
 
-// EM ANDAMENTO ***************************************
+/**
+ * @brief checa se um dado esta presente na lista ou nao
+ * 
+ * checa todos os elementos da lista para ver se algum deles
+ * aponta para dado. se sim, retorna true
+ * 
+ * @param list o endereco da lista
+ * @param dado o endereco do dado
+ * @return true  a variavel apontada por dado ja esta presente na lista
+ * @return false a variavel apontada por dado não esta presente na lista
+ */
 bool hasDado(lList* list, void* dado);
+
+// EM ANDAMENTO ***************************************
 // EM ANDAMENTO ***************************************
 
 #endif /* _LISTS_H_ */
