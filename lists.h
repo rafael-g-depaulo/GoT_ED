@@ -10,10 +10,6 @@
  #ifndef _LISTS_H_
  #define _LISTS_H_
 
- #include <stdlib.h>
- #include <stdbool.h>
- #include "characters.h"
-
 /**
  * @brief elemento da lista duplamente encadeada, circular e linear
  * 
@@ -170,7 +166,7 @@ void libera_list(lList* list, void (*freeDado)(void*));
  * 
  * @return Character* dado recuperado
  */
-Character* getDadoAtIndex(cList* list, int index);
+Character* getDadoAtIndex(lList* list, int index);
 
 /**
  * @brief checa se um dado esta presente na lista ou nao

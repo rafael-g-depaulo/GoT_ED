@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "lists.h"
 
 #define STR_SIZE 50
 
@@ -56,8 +55,11 @@ typedef struct {
 
 } t_log;
 
+
+#include "lists.h"
+
 /**
- * @brief      Lê o arquivo dos personagens e os armazena numa lista circular duplamente encadeada.
+ * @brief      Lê o arquivo dos personagens e os armazena numa lista linear duplamente encadeada.
  * 
  * Depois de armazenar as informações de cada linha em variáveis
  * locais, usa a função character_create para criar elementos do tipo Character
@@ -65,7 +67,7 @@ typedef struct {
  * 
  * @return     A lista com todos os personagens extraídos.
  */
-cList* aloca_personagens();
+lList* aloca_personagens();
 
 /**
  * @brief      Cria um elemento de tipo Character contendo as informações obtidas no arquivo.
@@ -81,7 +83,9 @@ cList* aloca_personagens();
  */
 Character* character_create(char* _name, char* _house, int _agility, int _strength, int _intelligence, int _health);
 
-lList* sorteia_personagens(cList* lista_personagens);
+lList* sorteia_personagens(lList* lista_personagens);
+
+Character* escolhe_personagem(lList* lista_players);
 
 /**
  * @brief      Pega o personagem escolhido pelo jogador e o define como Player1.
@@ -93,6 +97,8 @@ lList* sorteia_personagens(cList* lista_personagens);
  * @return     O endereço da estrutura criada.
  */
 t_player* inicializa_player(Character* personagem);
+
+t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _atributo);
 
 /**
  * @brief      Libera memória referente a um elemento de tipo #Character.

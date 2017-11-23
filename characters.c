@@ -7,9 +7,9 @@
 #include "characters.h"
 
 
-cList* aloca_personagens() {
+lList* aloca_personagens() {
 
-	cList* lista = aloca_circ_list();
+	lList* lista = aloca_list();
 
 	FILE* arquivo = fopen("personagens.txt", "r");
 	if (arquivo == NULL) {
@@ -33,7 +33,7 @@ cList* aloca_personagens() {
 			fscanf(arquivo, "%d, ", &intelligence) 	+
 			fscanf(arquivo, "%d\n", &health)        == 6) {
 
-		cPush(lista, character_create(name, house, agility, strength, intelligence, health));
+		lPush(lista, character_create(name, house, agility, strength, intelligence, health));
 	}
 
 	fclose(arquivo);
@@ -67,7 +67,7 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
 }
 
 /*****************************************************************************/
-lList* sorteia_personagens(cList* lista_personagens) {
+lList* sorteia_personagens(lList* lista_personagens) {
 
 	srand(time(NULL));
 
@@ -76,7 +76,7 @@ lList* sorteia_personagens(cList* lista_personagens) {
 
 	while (lista_players->size < 16) {
 		
-		atual = getDadoAtIndex(lista_personagens, rand()%lista_personagens->size);
+		atual = getDadoAtIndex(lista_personagens, rand() % lista_personagens->size);
 		if (!hasDado(lista_players, atual)) {
 			lPush(lista_players, atual);
 		}
@@ -85,6 +85,51 @@ lList* sorteia_personagens(cList* lista_personagens) {
 	printf("A lista de players alocou %d personagens\n", lista_players->size);
 
 	return lista_players;
+}
+
+/*****************************************************************************/
+Character* escolhe_personagem(lList* lista_players) {
+
+	Character* atual;
+
+	printf("\t\tEscolha seu personagem\n\n");
+	int i, index_escolhido, show_attr;
+	for (i = 0; i < lista_players->size; i++) {
+
+		atual = getDadoAtIndex(lista_players, i);
+		show_attr = 1+(rand()%4);
+
+		printf("Personagem %d:\n", i+1);
+
+		if (show_attr == 1)
+			printf("Agility: %d\t", atual->agility);
+		else
+			printf("Agility: ??\t");
+	
+		if (show_attr == 2)
+			printf("Strength: %d\t", atual->strength);
+		else
+			printf("Strength: ??\t");
+		
+		if (show_attr == 3)
+			printf("Intelligence: %d\t", atual->intelligence);
+		else
+			printf("Intelligence: ??\t");
+
+		if (show_attr == 4)
+			printf("Health: %d\n\n", atual->health);
+		else
+			printf("Health: ??\n\n");	
+	}
+
+
+	do {
+		printf("Sua escolha: ");
+		scanf("%d", &index_escolhido);
+	} while (index_escolhido <= 0 || index_escolhido > 16);
+
+	return getDadoAtIndex(lista_players, index_escolhido-1);
+
 }
 
 /*****************************************************************************/

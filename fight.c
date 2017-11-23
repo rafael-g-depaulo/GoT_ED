@@ -11,7 +11,7 @@
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 
 	Character* winner;
-	Stat atr = atribute;
+	Stat atr = (Stat) atribute;
 
 	switch(atr) {
 
@@ -60,7 +60,7 @@ void print_player(t_player* player, Character* opponent) {
 	if (player->last_used == STRENGTH)
 		printf("X) X\t: XX\n");
 	else
-		printf("2: Strength\t: %d", player->chr->strenth);
+		printf("2: Strength\t: %d", player->chr->strength);
 
 	if (player->last_used == INTELLIGENCE)
 		printf("X) X\t: XX\n");

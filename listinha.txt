@@ -41,17 +41,15 @@ Básico/implementação:
 
 [] Guerra:
     "enquanto player vivo, chamar fight round"
-    - [L inc] fight round
+    - [L dev] fight round
 
-[L inc] fight round:
+[L dev] fight round:
     "if left empty { fight round(left) fight round(right) } else { fight }"
     - [L test] fight
 
 [L dev] fight:
     "seleciona stat (random ou player escolhe), devide vencedor. posiciona vencedor.
      cria o log, insere o log. se player perdeu, matar o player"
-    - [] selecStat_CPU
-    - [] selecStat_Player
+    - [L dev] selecStat_CPU
+    - [L dev] selecStat_Player
 
-[R inc] random:
-    "retorna um numero aleatorio inteiro entre os dois inteiros entrados como parametros"
