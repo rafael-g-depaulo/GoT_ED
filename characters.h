@@ -3,7 +3,6 @@
 
 #define STR_SIZE 70
 
-
 typedef struct {
 	char* name;
 	char* house;
@@ -11,7 +10,6 @@ typedef struct {
 	int strength;
 	int intelligence;
 	int health;
-
 } Character;
 
 //EU VOU DOXYGERAR ISSO LOGO LOGO PERAI

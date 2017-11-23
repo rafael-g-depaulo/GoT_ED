@@ -12,8 +12,7 @@
 
  #include <stdlib.h>
  #include <stdbool.h>
-
- typedef int Character;
+ #include "characters.h"
 
 /**
  * @brief elemento da lista duplamente encadeada, circular e linear
