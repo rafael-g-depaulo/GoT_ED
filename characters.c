@@ -122,7 +122,6 @@ Character* escolhe_personagem(lList* lista_players) {
 			printf("Health: ??\n\n");	
 	}
 
-
 	do {
 		printf("Sua escolha: ");
 		scanf("%d", &index_escolhido);
