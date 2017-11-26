@@ -129,9 +129,11 @@ void* lPop(lList* list) {
 }
 
 /*-----------------------------------------------------------------------------*/
-void libera_list(lList* list) {
-
-    while(lPop(list));
+void libera_list(lList* list, void(*freeDado)(void*)) {
+    void* dado = NULL;
+    while ( (dado = lPop(list)) ) {
+        freeDado(dado);
+    }
     free(list);
 }
 

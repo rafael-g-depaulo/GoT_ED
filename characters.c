@@ -111,3 +111,8 @@ Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 	
 	return winner;
 }
+
+/*****************************************************************************/
+void f_character(void* character) {
+	character_free( (Character*) character);
+}

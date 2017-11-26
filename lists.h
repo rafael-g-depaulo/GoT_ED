@@ -147,11 +147,13 @@ void* lPop(lList* list);
  * @brief libera a lista linear alocada dinamicamente
  * 
  * todos os elementos são liberados com lPop() antes da lista ser liberada.
- * OBS: os dados do elemento nao sao liberados, só os elementos que referenciam eles.
+ * OBS: os elementos são liberados, mas os dados dentro deles só são liberados
+ * (com a função freeDado) se freeDado != NULL. se freeDado == NULL, então os dados são ignorados.
  * 
  * @param list o endereco da lista
+ * @param freeDado a funcao a ser usada para 
  */
-void libera_list(lList* list);
+void libera_list(lList* list, void (*freeDado)(void*));
 
 /**
  * @brief retorna o dado no i-ésimo elemento a partir de list->first
