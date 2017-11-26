@@ -22,7 +22,7 @@ cList* aloca_circ_list() {
 void libera_circ_list(cList* list) {
 
     Character* chr;
-    while (chr = cPop(list))
+    while ( (chr = cPop(list)) )
         character_free(chr);
 
     free(list);

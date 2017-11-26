@@ -8,7 +8,6 @@
 
 #define STR_SIZE 50
 
-
 /**
  * @brief      A principal estrutura do jogo, que guarda as informações de cada carta.
  */
@@ -104,5 +103,4 @@ void character_free(Character* character);
  */
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute);
 
-
-#endif
+#endif /* _PERSONAGENSSKK_ */

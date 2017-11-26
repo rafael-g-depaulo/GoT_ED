@@ -10,11 +10,6 @@
  #ifndef _LISTS_H_
  #define _LISTS_H_
 
- #include <stdlib.h>
- #include <stdbool.h>
- #include "characters.h"
-
-
 /**
  * @brief elemento da lista duplamente encadeada, circular e linear
  * 
@@ -55,6 +50,12 @@ typedef struct {
     t_element* first;    /**< ponteiro para o primeiro elemento*/
     t_element* last;     /**< ponteiro para o ultimo elemento*/
 } lList;
+
+
+// includes aqui, por causa de dependencia de "characters.h" com as estruturas
+ #include <stdlib.h>
+ #include <stdbool.h>
+ #include "characters.h"
 
 /**
  * @brief funcao que aloca dinamicamente uma lista circular
