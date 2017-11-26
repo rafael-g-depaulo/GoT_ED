@@ -40,3 +40,32 @@ t_node* tree_create() {
 
     return tree;
 }
+
+/*-----------------------------------------------------------------------------*/
+void tree_free(t_node* tree) {
+
+    if (tree->left)
+        tree_free(tree->left);
+    if (tree->right)
+        tree_free(tree->right);
+
+    free(tree);
+}
+
+
+void printCharacter(Character* chr) {
+    if (!chr) {
+        printf("null\n");
+    }
+}
+
+/*-----------------------------------------------------------------------------*/
+void tree_print_preorder(t_node* tree) {
+    
+    printCharacter(tree->character);
+
+    if (tree->left)
+        tree_print_preorder(tree->left);
+    if (tree->right)
+        tree_print_preorder(tree->right);
+}
