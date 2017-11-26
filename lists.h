@@ -10,6 +10,10 @@
  #ifndef _LISTS_H_
  #define _LISTS_H_
 
+ #include <stdlib.h>
+ #include <stdbool.h>
+ #include "characters.h"
+
 /**
  * @brief elemento da lista duplamente encadeada, circular e linear
  * 

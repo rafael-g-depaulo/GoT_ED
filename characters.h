@@ -18,7 +18,6 @@ typedef struct {
 	int strength;
 	int intelligence;
 	int health;
-
 } Character;
 
 /**
