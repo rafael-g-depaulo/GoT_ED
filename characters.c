@@ -93,6 +93,7 @@ Character* escolhe_personagem(lList* lista_players) {
 	Character* atual;
 
 	printf("\t\tEscolha seu personagem\n\n");
+	
 	int i, index_escolhido, show_attr;
 	for (i = 0; i < lista_players->size; i++) {
 

@@ -17,6 +17,7 @@ typedef struct {
 	int strength;
 	int intelligence;
 	int health;
+
 } Character;
 
 /**
@@ -70,7 +71,7 @@ typedef struct {
 lList* aloca_personagens();
 
 /**
- * @brief      Cria um elemento de tipo Character contendo as informações obtidas no arquivo.
+ * @brief      Cria um elemento de tipo #Character contendo as informações obtidas em cada linha do arquivo.
  *
  * @param      _name          O nome do personagem
  * @param      _house         A casa do personagem
@@ -83,6 +84,12 @@ lList* aloca_personagens();
  */
 Character* character_create(char* _name, char* _house, int _agility, int _strength, int _intelligence, int _health);
 
+/**
+ * @brief      Cria uma lista com 16 personagens sorteados da lista maior.
+ *
+ * @param      lista_personagens A lista com todos os personagens, da qual serão extraídos 16.
+ * @return     Uma lista com os 16 personagens a serem inseridos no torneio.
+ */
 lList* sorteia_personagens(lList* lista_personagens);
 
 Character* escolhe_personagem(lList* lista_players);
@@ -91,7 +98,8 @@ Character* escolhe_personagem(lList* lista_players);
  * @brief      Pega o personagem escolhido pelo jogador e o define como Player1.
  * 
  * Esse "registro", que nos diz ao longo do jogo quem é o usuário,
- * nos fornece informações como o atributo usado na última luta.
+ * nos fornece informações como o atributo usado na última luta
+ * e se ele está vivo.
  *
  * @param      personagem  O personagem escolhido;
  * @return     O endereço da estrutura criada.
