@@ -28,7 +28,6 @@ void libera_circ_list(cList* list) {
     free(list);
 }
 
-
 /*-----------------------------------------------------------------------------*/
 Character* cPop(cList* list) {
 
@@ -103,7 +102,7 @@ void lPush(lList* list, void* dado) {
 
     ele->dado = dado;
 
-    if (!list->first)
+    if (!(list->first))
         list->first = ele;
     if (list->last)
         list->last->next = ele;
@@ -141,7 +140,7 @@ void libera_list(lList* list, void(*freeDado)(void*)) {
 }
 
 /*-----------------------------------------------------------------------------*/
-Character* getDadoAtIndex(cList* list, int index) {
+Character* getDadoAtIndex(lList* list, int index) {
     if (!list || list->size == 0)
         return NULL;
 
@@ -160,11 +159,13 @@ bool hasDado(lList* list, void* dado) {
     bool retVal = false;
     int i;
 
-    for (i = 1; i < list->size; i++)
-        if (ele->dado == dado) {
+    for (i = 0; i < list->size; i++) {
+        if ((Character*) ele->dado == (Character*) dado) {
             retVal = true;
             break;
         }
+        ele = ele->next;
+    }
     
     return retVal;
 }

@@ -56,8 +56,6 @@ typedef struct {
 
 
 // includes aqui, por causa de dependencias com as estruturas
- #include <stdlib.h>
- #include <stdbool.h>
  #include "characters.h"
 
 /**
@@ -169,7 +167,7 @@ void libera_list(lList* list, void (*freeDado)(void*));
  * 
  * @return Character* dado recuperado
  */
-Character* getDadoAtIndex(cList* list, int index);
+Character* getDadoAtIndex(lList* list, int index);
 
 /**
  * @brief checa se um dado esta presente na lista ou nao

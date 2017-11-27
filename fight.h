@@ -3,9 +3,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "lists.h"
 #include "characters.h"
+#include "lists.h"
 #include "tree.h"
+
+
+void fight_round(t_node* tree, t_player* player, int current_round, lList* log_list);
+
+int choose_stat(t_player* player);
 
 /**
  * @brief      Compara um mesmo atributo entre duas cartas e determina o vencedor da batalha.
@@ -50,10 +55,10 @@ void fight_round(t_node* tree, t_player* p1, lList* log_list);
 void war(t_node* tree, t_player* p1, lList* log_list);
 
 /**
- * @brief 
+ * @brief coloca os personagens que vão jogar no último nivel da árvore
  * 
- * @param charList 
- * @param tree 
+ * @param charList  lista contendo os 16 personagens que vão jogar
+ * @param tree      a arvore de 4 níveis na qual os personagens serão inseridos
  */
 void putChars_in_tree(lList* charList, t_node* tree);
 

@@ -7,11 +7,10 @@
 #include "tree.h"
 #include "fight.h"
 
-
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 
 	Character* winner;
-	Stat atr = atribute;
+	Stat atr = (Stat) atribute;
 
 	switch(atr) {
 
