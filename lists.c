@@ -103,7 +103,10 @@ void lPush(lList* list, void* dado) {
 
     ele->dado = dado;
 
-    list->last->next = ele;
+    if (!list->first)
+        list->first = ele;
+    if (list->last)
+        list->last->next = ele;
     ele->prev = list->last;
     list->last = ele;
 

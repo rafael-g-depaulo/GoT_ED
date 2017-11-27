@@ -23,6 +23,7 @@ Character* fight(Character* fighter_one, Character* fighter_two, int atribute);
 void fight_node(t_node* no, t_player* p1, lList* log_list);
 void fight_round(t_node* tree, t_player* p1, lList* log_list);
 void war(t_node* tree, t_player* p1, lList* log_list);
+void putChars_in_tree(lList* charList, t_node* tree);
 
 void print_player(t_player* player, Character* opponent);
 

@@ -12,7 +12,6 @@
 
  #include <stdlib.h>
  #include <stdbool.h>
- #include "characters.h"
 
 /**
  * @brief elemento da lista duplamente encadeada, circular e linear
@@ -56,7 +55,7 @@ typedef struct {
 } lList;
 
 
-// includes aqui, por causa de dependencia de "characters.h" com as estruturas
+// includes aqui, por causa de dependencias com as estruturas
  #include <stdlib.h>
  #include <stdbool.h>
  #include "characters.h"

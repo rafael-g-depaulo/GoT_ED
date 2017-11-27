@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "lists.h"
 
 #define STR_SIZE 50
 
@@ -55,6 +54,9 @@ typedef struct {
 	Stat used_attr;
 
 } t_log;
+
+// includes aqui, por causa de dependencias com as estruturas
+#include "lists.h"
 
 /**
  * @brief      Lê o arquivo dos personagens e os armazena numa lista circular duplamente encadeada.

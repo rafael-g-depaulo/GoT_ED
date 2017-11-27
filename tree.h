@@ -22,6 +22,7 @@ typedef struct node {
     struct node* right;         /**< ponteiro para o filho direito*/
 } t_node;
 
+
 /**
  * @brief cria um nó da arvore e retorna ele
  * 
@@ -57,6 +58,7 @@ t_node* tree_create();
 void tree_free(t_node* tree);
 /** EM DESENVOLVIMENTO ***************************/
 void tree_print_preorder(t_node* tree);
+void printCharacter(Character* chr);
 /** EM DESENVOLVIMENTO ***************************/
 
 #endif /* _TREE_H_ */

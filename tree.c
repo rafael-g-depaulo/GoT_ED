@@ -56,6 +56,9 @@ void tree_free(t_node* tree) {
 void printCharacter(Character* chr) {
     if (!chr) {
         printf("null\n");
+    } else {
+        printf("\n|%s|, da casa |%s|, de stats %d, %d, %d e %d.", chr->name, chr->house,
+            chr->health, chr->strength, chr->intelligence, chr->agility);
     }
 }
 
