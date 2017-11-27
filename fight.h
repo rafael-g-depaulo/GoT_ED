@@ -8,10 +8,6 @@
 #include "tree.h"
 
 
-void fight_round(t_node* tree, t_player* player, int current_round, lList* log_list);
-
-int choose_stat(t_player* player);
-
 /**
  * @brief      Compara um mesmo atributo entre duas cartas e determina o vencedor da batalha.
  *

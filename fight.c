@@ -49,8 +49,6 @@ Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 /*-----------------------------------------------------------------------------*/
 void fight_node(t_node* no, t_player* p1, lList* log_list) {
 
-	srand(time(NULL));
-
 	// caso o PC esteja nessa luta
 	if (p1->chr == no->left->character || p1->chr == no->right->character) {
 
