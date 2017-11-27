@@ -10,6 +10,9 @@
  #ifndef _LISTS_H_
  #define _LISTS_H_
 
+ #include <stdlib.h>
+ #include <stdbool.h>
+
 /**
  * @brief elemento da lista duplamente encadeada, circular e linear
  * 
@@ -52,9 +55,7 @@ typedef struct {
 } lList;
 
 
-// includes aqui, por causa de dependencia de "characters.h" com as estruturas
- #include <stdlib.h>
- #include <stdbool.h>
+// includes aqui, por causa de dependencias com as estruturas
  #include "characters.h"
 
 /**
