@@ -121,5 +121,12 @@ void libera_character(void* character);
  */
 void libera_log(void* log);
 
+/**
+ * @brief 		imprime na tela o player e seu oponente
+ * 
+ * @param 		player 		endereço do player
+ * @param 		opponent 	endereço do oponente
+ */
+void print_player(t_player* player, Character* opponent);
 
 #endif /* _PERSONAGENSS_ */
