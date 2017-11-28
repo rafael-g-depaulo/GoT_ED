@@ -1,3 +1,11 @@
+/**
+ * @file characters.h
+ * @author Luthiery C. Cavalcante, Rafael G. de Paulo
+ * @date 22/11/17
+ * 
+ * @brief Arquivo contendo as funções e estruturas envolvendo os personagens do jogo.
+ */
+
 #ifndef _PERSONAGENSS_
 #define _PERSONAGENSS_
 

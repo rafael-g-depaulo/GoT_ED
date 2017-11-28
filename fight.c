@@ -87,6 +87,7 @@ void fight_node(t_node* no, t_player* p1, lList* log_list) {
 		if (winner != p1->chr)
 			p1->alive = false;
 
+		p1->last_used = (Stat) atrib;
 		no->character = winner;
 
 	// caso seja uma luta de NPC's

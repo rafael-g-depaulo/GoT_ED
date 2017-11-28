@@ -15,7 +15,5 @@ int main() {
 
 	t_player* player1 = inicializa_player(escolhe_personagem(playing_list));
 
-
-
 	return 0;
 }
