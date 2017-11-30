@@ -56,6 +56,7 @@ t_node* tree_create();
  * @param tree endereço da arvore
  */
 void tree_free(t_node* tree);
+
 /** EM DESENVOLVIMENTO ***************************/
 void tree_print_preorder(t_node* tree);
 void printCharacter(Character* chr);

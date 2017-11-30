@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include "log.h"
 #include "lists.h"
 #include "characters.h"
 #include "tree.h"
 #include "fight.h"
-#include "log.h"
 
+
+/*-----------------------------------------------------------------------------*/
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 
 	Character* winner;
@@ -78,6 +80,9 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 				break;
 			if (atrib == 4 && p1->last_used != HEALTH)
 				break;
+
+			int c;
+			while ( (c = getc(stdin)) != '\0' && c != EOF);
 
 			printf("\nEscolha invalida. Escolha de novo...");
 		}
