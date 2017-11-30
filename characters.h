@@ -125,21 +125,12 @@ t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _at
 void character_free(Character* character);
 
 /**
- * @brief 		Libera memória referente a um elemento de tipo #Character. (chamando character_free())
- * 
- * essa funcao é usada em libera_list()
- * 
- * @param character endereco do personagem a ser apagado
- */
-void libera_character(void* character);
-
-/**
  * @brief      Libera memória referente a um elemento de tipo #t_log.
  *
  * @param      log   Registro a ser apagado
  * @return     Não há retorno.
  */
-void libera_log(void* log);
+void log_free(t_log* log);
 
 /**
  * @brief 		imprime na tela o player e seu oponente

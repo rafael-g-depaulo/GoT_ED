@@ -15,5 +15,9 @@ int main() {
 
 	t_player* player1 = inicializa_player(escolhe_personagem(playing_list));
 
+	free(player1);
+	libera_list(playing_list, 1);
+	libera_list(all_char_list, 2);
+
 	return 0;
 }

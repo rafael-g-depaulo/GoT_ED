@@ -170,15 +170,9 @@ void character_free(Character* character) {
 }
 
 /*****************************************************************************/
-void libera_character(void* character) {
-	character_free( (Character*) character);
-}
+void log_free(t_log* log) {
 
-/*****************************************************************************/
-void libera_log(void* log) {
-
-	t_log* ponteiro = (t_log*) log;
-	free(ponteiro);
+	free(log);
 }
 
 /*****************************************************************************/
