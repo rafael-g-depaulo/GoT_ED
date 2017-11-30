@@ -6,6 +6,7 @@
 #include "characters.h"
 #include "tree.h"
 #include "fight.h"
+#include "log.h"
 
 Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 
