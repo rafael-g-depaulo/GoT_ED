@@ -25,7 +25,7 @@ t_log* create_log(Character* player1, Character* player2, int round, Stat used_a
 void printLog(t_log* log, bool printRound) {
 
     if (printRound)
-        printf("\nROUND %d:");
+        printf("\nROUND %d:", log->round);
 
     int stat1, stat2;
     char* stat = (char*) malloc(20 * sizeof(char));
@@ -53,7 +53,11 @@ void printLog(t_log* log, bool printRound) {
             break;
     }
 
-    
     printf("\n%s (%d %s) x %s (%d %s)", log->player1->name, stat1,
         stat, log->player1->name, stat2, stat);
+}
+
+/*-----------------------------------------------------------------------------*/
+void log_free(t_log* log) {
+    free(log);
 }

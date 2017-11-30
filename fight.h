@@ -14,7 +14,7 @@
 #include "characters.h"
 #include "lists.h"
 #include "tree.h"
-
+#include "log.h"
 
 /**
  * @brief      Compara um mesmo atributo entre duas cartas e determina o vencedor da batalha.
@@ -34,18 +34,20 @@ Character* fight(Character* fighter_one, Character* fighter_two, int atribute);
  * 
  * @param no        endereço do no cujos filhos lutarão
  * @param p1        endereço do player
+ * @param round     o numero do round atual
  * @param log_list  lista dos logs das lutas
  */
-void fight_node(t_node* no, t_player* p1, lList* log_list);
+void fight_node(t_node* no, t_player* p1, int round, lList* log_list);
 
 /**
  * @brief realiza um round da guerra
  * 
  * @param tree          endereço da arvore
  * @param p1            endereço do player
+ * @param round         o numero do round atual
  * @param log_list[out] lista dos logs das lutas
  */
-void fight_round(t_node* tree, t_player* p1, lList* log_list);
+void fight_round(t_node* tree, t_player* p1, int round, lList* log_list);
 
 /**
  * @brief realiza a guerra
@@ -65,8 +67,5 @@ void war(t_node* tree, t_player* p1, lList* log_list);
  * @param tree      a arvore de 4 níveis na qual os personagens serão inseridos
  */
 void putChars_in_tree(lList* charList, t_node* tree);
-
-//EM DESENVOLVIMENTO
-//EM DESENVOLVIMENTO
 
 #endif /* __FIGHT_H_ */

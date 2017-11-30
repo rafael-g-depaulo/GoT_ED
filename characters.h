@@ -35,7 +35,7 @@ typedef enum attributes {
 	AGILITY = 1,
 	STRENGTH,
 	INTELLIGENCE,
-	HEALTH
+	HEALTH	
 } Stat;
 
 /**
@@ -98,8 +98,6 @@ Character* escolhe_personagem(lList* lista_players);
  */
 t_player* inicializa_player(Character* personagem);
 
-t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _atributo);
-
 /**
  * @brief      Libera memória referente a um elemento de tipo #Character.
  *
@@ -107,14 +105,6 @@ t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _at
  * @return     Não há retorno.
  */
 void character_free(Character* character);
-
-/**
- * @brief      Libera memória referente a um elemento de tipo #t_log.
- *
- * @param      log   Registro a ser apagado
- * @return     Não há retorno.
- */
-void log_free(t_log* log);
 
 /**
  * @brief 		imprime na tela o player e seu oponente

@@ -47,12 +47,12 @@ Character* fight(Character* fighter_one, Character* fighter_two, int atribute) {
 }
 
 /*-----------------------------------------------------------------------------*/
-void fight_node(t_node* no, t_player* p1, lList* log_list) {
+void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 
-	// caso o PC esteja nessa luta
+	/* caso o PC esteja nessa luta */
 	if (p1->chr == no->left->character || p1->chr == no->right->character) {
 
-		// pegando o personagem do player e o NPC
+		/* pegando o personagem do player e o NPC */
 		Character* NPC;
 
 		if (p1->chr == no->left->character)
@@ -60,10 +60,10 @@ void fight_node(t_node* no, t_player* p1, lList* log_list) {
 		else
 			NPC = no->left->character;
 
-		// printar personagem e receber escolha de atributo
+		/* printar personagem e receber escolha de atributo */
 		print_player(p1, NPC);
 
-		// escolha de atributo
+		/* escolha de atributo */
 		int atrib = 0;
 		while (true) {
 			printf("\nEscolha um atributo: ");
@@ -81,8 +81,12 @@ void fight_node(t_node* no, t_player* p1, lList* log_list) {
 			printf("\nEscolha invalida. Escolha de novo...");
 		}
 
-		// realize a luta
+		/* realize a luta */
 		Character* winner = fight(no->left->character, no->right->character, atrib);
+
+		/* crie o log a guarde na lista */
+		t_log* log = create_log(p1->chr, NPC, round, atrib);
+		lPush(log_list, log);
 
 		if (winner != p1->chr)
 			p1->alive = false;
@@ -90,36 +94,40 @@ void fight_node(t_node* no, t_player* p1, lList* log_list) {
 		p1->last_used = (Stat) atrib;
 		no->character = winner;
 
-	// caso seja uma luta de NPC's
+	/* caso seja uma luta de NPC's */
 	} else {
 		int atrib = rand() % 4;
 		no->character = fight(no->left->character, no->right->character, atrib);
+
+		t_log* log = create_log(no->left->character, no->right->character, round, atrib);
+		lPush(log_list, log);
 	}
 }
 
 /*-----------------------------------------------------------------------------*/
-void fight_round(t_node* tree, t_player* p1, lList* log_list) {
+void fight_round(t_node* tree, t_player* p1, int round, lList* log_list) {
 	
-	// se exitem dois personagens que precisam lutar (condição de parada) 
+	/* se exitem dois personagens que precisam lutar (condição de parada) */
 	if (tree->left && tree->right && tree->left->character && tree->right->character) {
-		fight_node(tree, p1, log_list);
+		fight_node(tree, p1, round, log_list);
 		return;
 	}
 
-	// se o no da esquerda existe e esta vazio, percorra ele
+	/* se o no da esquerda existe e esta vazio, percorra ele */
 	if (tree->left && !(tree->left->character))
-		fight_round(tree->left, p1, log_list);
+		fight_round(tree->left, p1, round, log_list);
 
-	// se o no da direita existe e esta vazio, percorra ele
+	/* se o no da direita existe e esta vazio, percorra ele */
 	if (tree->right && !(tree->right->character))
-		fight_round(tree->right, p1, log_list);
+		fight_round(tree->right, p1, round, log_list);
 }
 
 /*-----------------------------------------------------------------------------*/
 void war(t_node* tree, t_player* p1, lList* log_list) {
 	
+	int round = 1;
 	while (p1->alive && !(tree->character))
-		fight_round(tree, p1, log_list);
+		fight_round(tree, p1, round++, log_list);
 }
 
 /*-----------------------------------------------------------------------------*/
@@ -128,10 +136,10 @@ void putChars_in_tree(lList* charList, t_node* tree) {
 	if (charList->size == 0)
 		return;
 
-	// se é folha
+	/* se é folha */
 	if (!(tree->left || tree->right)) {
 		tree->character = lPop(charList);
-	// se não é folha	
+	/* se não é folha */
 	} else {
 		putChars_in_tree(charList, tree->left);
 		putChars_in_tree(charList, tree->right);

@@ -50,4 +50,11 @@ t_log* create_log(Character* player1, Character* player2, int round, Stat used_a
  */
 void printLog(t_log* log, bool printRound);
 
+/**
+ * @brief libera a memoria alocada para um log
+ * 
+ * @param log 			o endereço do log a ser liberado
+ */
+void log_free(t_log* log);
+
 #endif /* _WAR_LOG_H_ */
