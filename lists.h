@@ -43,6 +43,7 @@ typedef struct {
 
 // includes aqui, por causa de dependencias com as estruturas
  #include "characters.h"
+ #include "log.h"
 
 /**
  * @brief funcao que aloca dinamicamente uma lista linear
@@ -120,8 +121,5 @@ Character* getDadoAtIndex(lList* list, int index);
  * @return false a variavel apontada por dado não esta presente na lista
  */
 bool hasDado(lList* list, void* dado);
-
-// EM ANDAMENTO ***************************************
-// EM ANDAMENTO ***************************************
 
 #endif /* _LISTS_H_ */

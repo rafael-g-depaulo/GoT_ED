@@ -48,22 +48,6 @@ typedef struct {
 
 } t_player;
 
-
-/**
- * @brief      Registra as batalhas que ocorreram ao longo do torneio.
- * 
- * Cada elemento t_log guarda informações sobre as lutas passadas,
- * como os personagens envolvidos, a fase em que se enfrentaram
- * e o atributo usado na ocasião.
- */
-typedef struct {
-	Character* player1;
-	Character* player2;
-	int round;
-	Stat used_attr;
-
-} t_log;
-
 // includes aqui, por causa de dependencias com as estruturas
 #include "lists.h"
 
