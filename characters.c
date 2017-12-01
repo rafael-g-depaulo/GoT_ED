@@ -149,30 +149,11 @@ t_player* inicializa_player(Character* personagem) {
 }
 
 /*****************************************************************************/
-t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _atributo) {
-
-	t_log* elemento = (t_log*) malloc(sizeof(t_log));
-
-	elemento->player1 = _player1;
-	elemento->player2 = _player2;
-	elemento->round = _round;
-	elemento->used_attr = _atributo;
-
-	return elemento;
-}
-
-/*****************************************************************************/
 void character_free(Character* character) {
 
 	free(character->name);
 	free(character->house);
 	free(character);
-}
-
-/*****************************************************************************/
-void log_free(t_log* log) {
-
-	free(log);
 }
 
 /*****************************************************************************/
@@ -196,7 +177,7 @@ void print_player(t_player* player, Character* opponent) {
 		printf("\n3: Intelligence\t: %d", player->chr->intelligence);
 
 	if (player->last_used == HEALTH)
-		printf("\nX) X\t: XX");
+		printf("\nX) X\t: XX\n");
 	else
 		printf("\n4: Health\t: %d\n", player->chr->health);
 

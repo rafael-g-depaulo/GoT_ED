@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "lists.h"
 #include "characters.h"
+#include "log.h"
 
 /*-----------------------------------------------------------------------------*/
 lList* aloca_list() {
@@ -106,4 +107,17 @@ bool hasDado(lList* list, void* dado) {
     }
     
     return retVal;
+}
+
+/*-----------------------------------------------------------------------------*/
+void listCopy(lList* dest, lList* src) {
+
+    t_element* ele = src->first;
+
+    do {
+        if (ele) {
+            lPush(dest, ele->dado);
+            ele = ele->next;
+        }
+    } while (ele != src->last);
 }

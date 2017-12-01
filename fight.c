@@ -100,6 +100,13 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 		p1->last_used = (Stat) atrib;
 		no->character = winner;
 
+		if (p1->alive && round != 4)
+			printf("\nVoce derrotou o inimigo, mas o inverno se aproxima, e a guerra tambem");
+		else if (p1->alive && round == 4)
+			printf("\nVoce derrotou o inimigo, Vossa Majestade.");
+		else
+			printf("\nYou died...\n");
+
 	/* caso seja uma luta de NPC's */
 	} else {
 		int atrib = rand() % 4;
