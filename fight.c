@@ -81,8 +81,8 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 			if (atrib == 4 && p1->last_used != HEALTH)
 				break;
 
-			int c;
-			while ( (c = getc(stdin)) != '\0' && c != EOF);
+			char c;
+			while ( (c = getc(stdin)) != '\0' && c != EOF && c != '\n');
 
 			printf("\nEscolha invalida. Escolha de novo...");
 		}
@@ -100,12 +100,18 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 		p1->last_used = (Stat) atrib;
 		no->character = winner;
 
-		if (p1->alive && round != 4)
-			printf("\nVoce derrotou o inimigo, mas o inverno se aproxima, e a guerra tambem");
-		else if (p1->alive && round == 4)
-			printf("\nVoce derrotou o inimigo, Vossa Majestade.");
-		else
+		if (p1->alive && round == 1) {
+			printf("\nVoce derrotou o inimigo, mas o inverno se aproxima, e a guerra tambem\n");
+		} else if (p1->alive && round == 2) {
+			printf("\nA arte da guerra e sutil, e o caminho do aspirante ao trono e traicoeiro.");
+			printf("Hoje a vitoria e sua, mas podera dizer isso de amanha?\n");
+		} else if (p1->alive && round == 3) {
+			printf("\nNada mal... mas lembre-se que o ultimo degrau da escada da o tombo mais doido.\n");
+		} else if (p1->alive && round == 4) {
+			printf("\nVoce derrotou o inimigo, Vossa Majestade.\n");
+		} else {
 			printf("\nYou died...\n");
+		}
 
 	/* caso seja uma luta de NPC's */
 	} else {

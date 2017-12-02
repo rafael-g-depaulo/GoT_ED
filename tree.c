@@ -88,6 +88,6 @@ void add_characters(t_node* tree, lList* chars) {
     } else if (chars->size != 0) {
         tree->character = lPop(chars);
     } else {
-        printf("\nERRO: lista de personagens jogando de tamanho insuficiente...");
+        //printf("\nERRO: lista de personagens jogando de tamanho insuficiente...");
     }
 }

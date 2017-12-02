@@ -114,10 +114,8 @@ void listCopy(lList* dest, lList* src) {
 
     t_element* ele = src->first;
 
-    do {
-        if (ele) {
-            lPush(dest, ele->dado);
-            ele = ele->next;
-        }
-    } while (ele != src->last);
+    while (dest->size < src->size) {
+        lPush(dest, ele->dado);
+        ele = ele->next;
+    }
 }
