@@ -1,22 +1,30 @@
-CFLAGS = -g -c -Wall -pedantic
+### Makefile do trabalho final de ED ###
 
-all: trab2 lists.o tree.o log.o characters.o fight.o
+# variaveis
+CC      = gcc
+FLAGS  = -g -c -Wall
+HEADERS = $(wildcard *.h)
 
-trab2: lists.o characters.o tree.o fight.o
-	gcc -g -o trab2 main.c lists.o characters.o tree.o fight.o -Wall -pedantic
+# all
+all: TrunfoGoT
+
+# executavel
+TrunfoGoT: log.o fight.o characters.o lists.o tree.o $(HEADERS)
+	$(CC) -o -g -Wall main.c log.o fight.o characters.o lists.o tree.o
 
 
-fight.o: fight.c fight.h log.h
-	gcc $(CFLAGS) fight.c log.o
+# .o's
+fight.o: $(HEADERS) fight.c
+	$(CC) $(FLAGS) fight.c
 
-tree.o: tree.c tree.h
-	gcc $(CFLAGS) tree.c 
+characters.o: $(HEADERS) characters.c
+	$(CC) $(FLAGS) characters.c
 
-characters.o: characters.c characters.h lists.h
-	gcc $(CFLAGS) characters.c 
+lists.o: $(HEADERS) lists.c
+	$(CC) $(FLAGS) lists.c
 
-lists.o: lists.c lists.h characters.h log.h
-	gcc $(CFLAGS) lists.c
+tree.o: $(HEADERS) tree.c
+	$(CC) $(FLAGS) tree.c
 
-log.o: log.c log.h characters.h 
-	gcc $(CFLAGS) log.c 
+log.o: $(HEADERS) log.c
+	$(CC) $(FLAGS) log.c
