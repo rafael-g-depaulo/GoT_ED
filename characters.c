@@ -149,19 +149,6 @@ t_player* inicializa_player(Character* personagem) {
 }
 
 /*****************************************************************************/
-t_log* log_create(Character* _player1, Character* _player2, int _round, Stat _atributo) {
-
-	t_log* elemento = (t_log*) malloc(sizeof(t_log));
-
-	elemento->player1 = _player1;
-	elemento->player2 = _player2;
-	elemento->round = _round;
-	elemento->used_attr = _atributo;
-
-	return elemento;
-}
-
-/*****************************************************************************/
 void character_free(Character* character) {
 
 	free(character->name);
@@ -170,36 +157,30 @@ void character_free(Character* character) {
 }
 
 /*****************************************************************************/
-void log_free(t_log* log) {
-
-	free(log);
-}
-
-/*****************************************************************************/
 void print_player(t_player* player, Character* opponent) {
 
-	printf("Seu personagem: %s da casa %s\n", player->chr->name, player->chr->house);
+	printf("\nSeu personagem: %s da casa %s.\n", player->chr->name, player->chr->house);
 
 	if (player->last_used == AGILITY)
-		printf("X) X\t: XX\n");
+		printf("\nX) X\t: XX");
 	else
-		printf("1: Agility\t: %d\n", player->chr->agility);
+		printf("\n1: Agility\t: %d", player->chr->agility);
 
 	if (player->last_used == STRENGTH)
-		printf("X) X\t: XX\n");
+		printf("\nX) X\t: XX");
 	else
-		printf("2: Strength\t: %d\n", player->chr->strength);
+		printf("\n2: Strength\t: %d", player->chr->strength);
 
 	if (player->last_used == INTELLIGENCE)
-		printf("X) X\t: XX\n");
+		printf("\nX) X\t: XX");
 	else
-		printf("3: Intelligence\t: %d\n", player->chr->intelligence);
+		printf("\n3: Intelligence\t: %d", player->chr->intelligence);
 
 	if (player->last_used == HEALTH)
-		printf("X) X\t: XX\n");
+		printf("\nX) X\t: XX\n");
 	else
-		printf("4: Health\t: %d\n", player->chr->health);
+		printf("\n4: Health\t: %d\n", player->chr->health);
 
-	printf("O adversário: %s da casa %s\n", opponent->name, opponent->house);
+	printf("O adversário: %s da casa %s.\n", opponent->name, opponent->house);
 
 }

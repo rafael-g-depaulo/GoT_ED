@@ -56,9 +56,47 @@ t_node* tree_create();
  * @param tree endereço da arvore
  */
 void tree_free(t_node* tree);
-/** EM DESENVOLVIMENTO ***************************/
+
+/**
+ * @brief imprime os personagens da arvore em preordem (não usado)
+ * 
+ * @param tree endereço da arvore
+ */
 void tree_print_preorder(t_node* tree);
+
+/**
+ * @brief descreve (imprime) as características de um personagem
+ * 
+ * usado como função auxiliar de tree_print_preorder();
+ * 
+ * @param chr endereço do personagem a ser descrito
+ */
 void printCharacter(Character* chr);
+
+/**
+ * @brief coloca os 16 primeiros personagens da lista nos nós folhas da arvore de forma recursiva
+ * 
+ * OBS: os 16 personagens da lista são liberados no processo
+ * 
+ * exemplo de uso:
+ * @code
+ *  // a lista que contem os personagens é char_list
+ *  // e a arvore em que vão ser colocados é char_tree
+ *  lList* aux = aloca_list();
+ *  listCopy(aux, char_list);
+ *  add_characters(char_tree, aux);
+ *  libera_list(aux, 2);            
+ *  // ^^^^ qualquer modo pode ser usado se char_list tiver
+ *  // 16 personagens, mas por garantia usar o modo 2
+ * @endcode
+ * 
+ * 
+ * @param tree  endereço da arvore
+ * @param chars endereço da lista
+ */
+void add_characters(t_node* tree, lList* chars);
+
+/** EM DESENVOLVIMENTO ***************************/
 /** EM DESENVOLVIMENTO ***************************/
 
 #endif /* _TREE_H_ */

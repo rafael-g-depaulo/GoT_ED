@@ -43,6 +43,7 @@ typedef struct {
 
 // includes aqui, por causa de dependencias com as estruturas
  #include "characters.h"
+ #include "log.h"
 
 /**
  * @brief funcao que aloca dinamicamente uma lista linear
@@ -121,7 +122,14 @@ Character* getDadoAtIndex(lList* list, int index);
  */
 bool hasDado(lList* list, void* dado);
 
-// EM ANDAMENTO ***************************************
-// EM ANDAMENTO ***************************************
+/**
+ * @brief copia os dados de src, colocando eles em dest
+ * 
+ * não altera src. dest aponta para os mesmos dados de src, não para copias.
+ * 
+ * @param dest  lista que recebera a copia
+ * @param src   lista que sera copiada
+ */
+void listCopy(lList* dest, lList* src);
 
 #endif /* _LISTS_H_ */

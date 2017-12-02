@@ -52,14 +52,15 @@ void tree_free(t_node* tree) {
         tree_free(tree->right);
 
     free(tree);
+
 }
 
-
+/*-----------------------------------------------------------------------------*/
 void printCharacter(Character* chr) {
     if (!chr) {
         printf("null\n");
     } else {
-        printf("\n|%s|, da casa |%s|, de stats %d, %d, %d e %d.", chr->name, chr->house,
+        printf("\n%s, da casa %s, de stats %d, %d, %d e %d.", chr->name, chr->house,
             chr->health, chr->strength, chr->intelligence, chr->agility);
     }
 }
@@ -73,4 +74,20 @@ void tree_print_preorder(t_node* tree) {
         tree_print_preorder(tree->left);
     if (tree->right)
         tree_print_preorder(tree->right);
+}
+
+/*-----------------------------------------------------------------------------*/
+void add_characters(t_node* tree, lList* chars) {
+
+    if (!tree)
+        return;
+
+    if (tree->left || tree->right) {
+        add_characters(tree->left, chars);
+        add_characters(tree->right, chars);
+    } else if (chars->size != 0) {
+        tree->character = lPop(chars);
+    } else {
+        //printf("\nERRO: lista de personagens jogando de tamanho insuficiente...");
+    }
 }

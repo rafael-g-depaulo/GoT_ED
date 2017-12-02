@@ -1,16 +1,22 @@
-all: trab2
+CFLAGS = -g -c -Wall -pedantic
+
+all: trab2 lists.o tree.o log.o characters.o fight.o
 
 trab2: lists.o characters.o tree.o fight.o
 	gcc -g -o trab2 main.c lists.o characters.o tree.o fight.o -Wall -pedantic
 
-fight.o: fight.c fight.h
-	gcc -g -c fight.c -Wall -pedantic
+
+fight.o: fight.c fight.h log.h
+	gcc $(CFLAGS) fight.c log.o
 
 tree.o: tree.c tree.h
-	gcc -g -c tree.c -Wall -pedantic
+	gcc $(CFLAGS) tree.c 
 
 characters.o: characters.c characters.h lists.h
-	gcc -g -c characters.c -Wall -pedantic
+	gcc $(CFLAGS) characters.c 
 
-lists.o: lists.c lists.h characters.h
-	gcc -g -c lists.c -Wall -pedantic
+lists.o: lists.c lists.h characters.h log.h
+	gcc $(CFLAGS) lists.c
+
+log.o: log.c log.h characters.h 
+	gcc $(CFLAGS) log.c 
