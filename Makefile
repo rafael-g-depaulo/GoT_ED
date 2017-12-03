@@ -2,15 +2,18 @@
 
 # variaveis
 CC      = gcc
-FLAGS  = -g -c -Wall
+FLAGS  	= -g -c -Wall
 HEADERS = $(wildcard *.h)
+SRC		= $(wildcard *.c)
+OBJ		= $(SRC .c=.o)
 
 # all
 all: TrunfoGoT
 
 # executavel
-TrunfoGoT: log.o fight.o characters.o lists.o tree.o arts.o $(HEADERS)
-	$(CC) -g -o trab2 main.c log.o fight.o characters.o lists.o tree.o arts.o -Wall
+
+TrunfoGoT: $(HEADERS) $(SRC) $(OBJ)
+	$(CC) -g -o TrunfoGoT $(SRC) $(OBJ) -Wall
 
 # .o's
 

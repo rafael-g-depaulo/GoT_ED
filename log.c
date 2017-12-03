@@ -83,6 +83,6 @@ void printLog(t_log* log, bool printRound) {
 }
 
 /*-----------------------------------------------------------------------------*/
-void log_free(t_log* log) {
-    free(log);
+void log_free(t_log* fight_log) {
+    free(fight_log);
 }
