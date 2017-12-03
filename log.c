@@ -21,7 +21,7 @@ void show_log(lList* log_list) {
         }
     }
 
-    if (round != 4) {
+    if (round != TREE_MAX_LEVEL) {
         printf("\nÉ uma pena que você não pode ver como isso acaba.\nAdeus...\n");
     }
 }

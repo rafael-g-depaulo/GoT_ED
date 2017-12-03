@@ -22,6 +22,8 @@ typedef struct node {
     struct node* right;         /**< ponteiro para o filho direito*/
 } t_node;
 
+#define TREE_MAX_LEVEL 4        /**< define a quantidade de níves que a árvore deve ter*/
+
 
 /**
  * @brief cria um nó da arvore e retorna ele
@@ -42,7 +44,7 @@ t_node* node_create();
 void add_level(t_node* tree);
 
 /**
- * @brief cria uma arvore binária vazia completa de 4 níveis
+ * @brief cria uma arvore binária vazia equilibrada completa de 'TREE_MAX_LEVEL' níveis
  * 
  * @return t_node* endereco da arvore
  */

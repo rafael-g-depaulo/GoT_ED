@@ -121,15 +121,23 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 		} else {
 			print_ArtWin();
 		
-			if (round == 1) {
-				printf("\nVoce derrotou o inimigo, porém o inverno se aproxima, e a guerra também...\n");
-			} else if (round == 2) {
-				printf("\nA arte da guerra é sutil, e o caminho do aspirante ao trono é traiçoeiro.");
-				printf("Hoje a vitoria é sua, mas poderá dizer isso de amanhã?\n");
-			} else if (round == 3) {
-				printf("\nNada mal... mas lembre-se que a pior queda vem do degrau mais alto.\n");
-			} else if (round == 4) {
-				printf("\nVoce derrotou o inimigo, Vossa Majestade.\n");
+			switch (round) {
+				case 1:
+					printf("\nVoce derrotou o inimigo, porém o inverno se aproxima, e a guerra também...\n");
+					break;
+				case 2:
+					printf("\nA arte da guerra é sutil, e o caminho do aspirante ao trono é traiçoeiro.");
+					printf("Hoje a vitoria é sua, mas poderá dizer isso de amanhã?\n");
+					break;
+				case 3:
+					printf("\nNada mal... mas lembre-se que a pior queda vem do degrau mais alto.\n");
+					break;
+				case TREE_MAX_LEVEL:
+					printf("\nVoce derrotou o inimigo, Vossa Majestade.\n");
+					break;
+				default:
+					printf("Parabens pela vitoria, mas ainda ha muita dificuldade pela frente");
+					break;
 			}
 
 			printLog(log, false);

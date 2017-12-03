@@ -36,7 +36,7 @@ t_node* tree_create() {
     t_node* tree = node_create();
 
     int i;
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < TREE_MAX_LEVEL; i++) {
         add_level(tree);
     }
 

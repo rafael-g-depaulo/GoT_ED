@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "characters.h"
+#include "tree.h"
 
 /**
  * @brief      Registra as batalhas que ocorreram ao longo do torneio.
