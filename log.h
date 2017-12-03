@@ -64,8 +64,8 @@ void printLog(t_log* log, bool printRound);
 /**
  * @brief libera a memoria alocada para um log
  * 
- * @param log 			o endereço do log a ser liberado
+ * @param fight_log 	o endereço do log a ser liberado
  */
-void log_free(t_log* log);
+void log_free(t_log* fight_log);
 
 #endif /* _WAR_LOG_H_ */

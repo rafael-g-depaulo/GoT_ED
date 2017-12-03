@@ -78,9 +78,10 @@ void printLog(t_log* log, bool printRound) {
 
     printf("%s (%d %s) vs. %s (%d %s)\n", log->player1->name, stat1,
         stat, log->player2->name, stat2, stat);
+        free(stat);
 }
 
 /*-----------------------------------------------------------------------------*/
-void log_free(t_log* log) {
-    free(log);
+void log_free(t_log* fight_log) {
+    free(fight_log);
 }
