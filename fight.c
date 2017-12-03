@@ -111,6 +111,9 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 			printf("ROUND %d:\n\n", round);
 		}
 
+		p1->last_used = (Stat) atrib;
+		no->character = winner;
+
 		if (winner != p1->chr) {
 			p1->alive = false;
 			print_ArtLose();
@@ -133,18 +136,15 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 					printf("\nNada mal... mas lembre-se que a pior queda vem do degrau mais alto.\n");
 					break;
 				case TREE_MAX_LEVEL:
-					printf("\nVoce derrotou o inimigo, Vossa Majestade.\n");
+					printf("\nVocê derrotou o inimigo, Vossa Majestade.\n");
 					break;
 				default:
-					printf("Parabens pela vitoria, mas ainda ha muita dificuldade pela frente");
+					printf("Parabéns pela vitoria, mas ainda ha muita dificuldade pela frente");
 					break;
 			}
 
 			printLog(log, false);
 		}
-
-		p1->last_used = (Stat) atrib;
-		no->character = winner;
 
 	/* caso seja uma luta de NPC's */
 	} else {

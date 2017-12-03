@@ -18,8 +18,8 @@ int main() {
 
 		do {
 			print_ArtMenu();
-			printf("\t[1] Start new game\n");
-			printf("\t[2] Quit\n");
+			printf("\t[1] Novo jogo\n");
+			printf("\t[2] Sair\n");
 			scanf("%d", &menu);
 
 			char c;
@@ -57,8 +57,8 @@ int main() {
 		tree_free(torneio);
 
 		do {
-			printf("\n[1] Back to main menu\n");
-			printf("[2] Quit\n");
+			printf("\n[1] Voltar ao menu principal\n");
+			printf("[2] Sair\n");
 			scanf("%d", &menu);
 
 			char c;

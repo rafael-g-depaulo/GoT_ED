@@ -82,8 +82,6 @@ lList* sorteia_personagens(lList* lista_personagens) {
 		}
 	}
 
-	printf("A lista de players alocou %d personagens\n", lista_players->size);
-
 	return lista_players;
 }
 

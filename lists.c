@@ -56,10 +56,17 @@ void* lPop(lList* list) {
 
     void* dado     = list->first->dado;
 
-    if (ele->next)
+    if (list->size > 1) {
         ele->next->prev = NULL;
+        list->first = ele->next;
     
-    list->first = ele->next;
+    } else {
+        ele->next = NULL;
+        ele->prev = NULL;
+        list->first = NULL;
+        list->last = NULL;
+    }
+
     free(ele);
 
     list->size--;

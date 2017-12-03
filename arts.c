@@ -13,8 +13,8 @@ void print_ArtMenu() {
 	 S     S  S    O S      S S             S  |  S  S      \n\
 	  sssss   P    P P      P P sSSss        sssss   P      \n\
 	                                                        \n\
-	sss sssss d    d d ss.    sSSSs   d s  b d sss     sss. \n\
-	    S     S    S S    b  S  |   S  S  S S S       d     \n\
+	sss sssss d    d d ss.    sSSSs   dss    dsss     sss. \n\
+	    S     S    S S    b  S  |   S S  S s S       d     \n\
 	    S     S    S S    P S   |   S S   SS S       Y      \n\
 	    S     S sSSS S sS'  S   |   S S    S S sSSs    ss.  \n\
 	    S     S    S S   S  S   |   S S    S S            b \n\
