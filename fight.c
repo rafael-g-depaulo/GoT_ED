@@ -132,7 +132,7 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 
 	/* caso seja uma luta de NPC's */
 	} else {
-		int atrib = rand() % 4;
+		int atrib = (rand() % 4)+1;
 		no->character = fight(no->left->character, no->right->character, atrib);
 
 		t_log* log = create_log(no->left->character, no->right->character, round, atrib);

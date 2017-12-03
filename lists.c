@@ -48,6 +48,12 @@ void* lPop(lList* list) {
         return NULL;
 
     t_element* ele = list->first;
+
+    if (!ele) {
+        printf("\nERRO: lPop() em lista vazia...");
+        return NULL;
+    }
+
     void* dado     = list->first->dado;
 
     if (ele->next)

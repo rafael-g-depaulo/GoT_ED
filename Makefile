@@ -12,7 +12,6 @@ all: TrunfoGoT
 TrunfoGoT: log.o fight.o characters.o lists.o tree.o $(HEADERS)
 	$(CC) -g -o trab2 main.c log.o fight.o characters.o lists.o tree.o -Wall
 
-
 # .o's
 fight.o: $(HEADERS) fight.c
 	$(CC) $(FLAGS) fight.c
