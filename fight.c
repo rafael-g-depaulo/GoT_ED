@@ -94,24 +94,41 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 		t_log* log = create_log(p1->chr, NPC, round, atrib);
 		lPush(log_list, log);
 
-		if (winner != p1->chr)
+		/* anuncie o resultado na tela */
+		if (round == 3) {
+			printf("SEMIFINAL:\n\n");
+		} else if (round == 4) {
+			printf("FINAL:\n\n");
+		} else {
+			printf("ROUND %d:\n\n", round);
+		}
+
+		if (winner != p1->chr) {
 			p1->alive = false;
+			/* ARTEZINHA YOU LOSE */
+			printf("\nYou're done...\n");
+			printLog(log, false);
+			printf("%s da casa %s foi vitorioso\n\n", NPC->name, NPC->house);
+
+		} else {
+			/* ARTEZINHA YOU WIN */
+		
+			if (round == 1) {
+				printf("\nVoce derrotou o inimigo, porém o inverno se aproxima, e a guerra também...\n");
+			} else if (round == 2) {
+				printf("\nA arte da guerra é sutil, e o caminho do aspirante ao trono é traiçoeiro.");
+				printf("Hoje a vitoria é sua, mas poderá dizer isso de amanhã?\n");
+			} else if (round == 3) {
+				printf("\nNada mal... mas lembre-se que a pior queda vem do degrau mais alto.\n");
+			} else if (round == 4) {
+				printf("\nVoce derrotou o inimigo, Vossa Majestade.\n");
+			}
+
+			printLog(log, false);
+		}
 
 		p1->last_used = (Stat) atrib;
 		no->character = winner;
-
-		if (p1->alive && round == 1) {
-			printf("\nVoce derrotou o inimigo, mas o inverno se aproxima, e a guerra tambem\n");
-		} else if (p1->alive && round == 2) {
-			printf("\nA arte da guerra e sutil, e o caminho do aspirante ao trono e traicoeiro.");
-			printf("Hoje a vitoria e sua, mas podera dizer isso de amanha?\n");
-		} else if (p1->alive && round == 3) {
-			printf("\nNada mal... mas lembre-se que o ultimo degrau da escada da o tombo mais doido.\n");
-		} else if (p1->alive && round == 4) {
-			printf("\nVoce derrotou o inimigo, Vossa Majestade.\n");
-		} else {
-			printf("\nYou died...\n");
-		}
 
 	/* caso seja uma luta de NPC's */
 	} else {
@@ -147,6 +164,10 @@ void war(t_node* tree, t_player* p1, lList* log_list) {
 	int round = 1;
 	while (p1->alive && !(tree->character))
 		fight_round(tree, p1, round++, log_list);
+
+	if (p1->alive)
+		printf("%s da casa %s foi vitorioso e agora é o novo rei dos 7 reinos!\n",
+			   p1->chr->name, p1->chr->house);
 }
 
 /*-----------------------------------------------------------------------------*/

@@ -1,6 +1,6 @@
 /**
  * @file list.h
- * @author Rafael G. de Paulo
+ * @author Rafael G. de Paulo, Luthiery C. Cavalcante
  * @date 27/11/17
  * 
  * @brief implementacao da estrutura auxiliar que guarda
@@ -29,6 +29,17 @@ typedef struct {
 	Stat used_attr;
 
 } t_log;
+
+/**
+ * @brief      Após a guerra terminar, a função imprime todas as lutas passadas.
+ * 
+ * Pega um elemento da lista de logs e chama printLog, função que imprime um por um.
+ *
+ * @param      log_list  A lista com os registros
+ * @return     Não há retorno.
+ */
+
+void show_log(lList* log_list);
 
 /**
  * @brief cria um log, alocado dinamicamente, e retorna seu endereço

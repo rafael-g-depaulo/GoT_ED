@@ -10,7 +10,7 @@ all: TrunfoGoT
 
 # executavel
 TrunfoGoT: log.o fight.o characters.o lists.o tree.o $(HEADERS)
-	$(CC) -o -g -Wall main.c log.o fight.o characters.o lists.o tree.o
+	$(CC) -g -o trab2 main.c log.o fight.o characters.o lists.o tree.o -Wall
 
 
 # .o's

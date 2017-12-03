@@ -3,6 +3,25 @@
 #include <string.h>
 #include "log.h"
 
+void show_log(lList* log_list) {
+
+    int i, round = 0;
+    t_log* log;
+
+    printf("\nA guerra até aqui:\n");
+    for (i = 0; i < log_list->size; i++) {
+
+        log = (t_log*) getDadoAtIndex(log_list, i);
+
+        if (log->round != round) {
+            printLog(log, true);            // o booleano aqui diz se devemos imprimir antes em que round estamos ou não
+            round = log->round;
+        } else {
+            printLog(log, false);
+        }
+    }
+}
+
 /*-----------------------------------------------------------------------------*/
 t_log* create_log(Character* player1, Character* player2, int round, Stat used_attr) {
 
@@ -25,7 +44,7 @@ t_log* create_log(Character* player1, Character* player2, int round, Stat used_a
 void printLog(t_log* log, bool printRound) {
 
     if (printRound)
-        printf("\nROUND %d:", log->round);
+        printf("\nROUND %d:\n", log->round);
 
     int stat1, stat2;
     char* stat = (char*) malloc(20 * sizeof(char));
@@ -37,12 +56,12 @@ void printLog(t_log* log, bool printRound) {
             stat2 = log->player2->agility;
             break;
         case STRENGTH:
-            strcpy(stat, "strenght");
+            strcpy(stat, "strength");
             stat1 = log->player1->strength;
             stat2 = log->player2->strength;
             break;
         case INTELLIGENCE:
-            strcpy(stat, "inteligence");
+            strcpy(stat, "intelligence");
             stat1 = log->player1->intelligence;
             stat2 = log->player2->intelligence;
             break;
@@ -53,8 +72,8 @@ void printLog(t_log* log, bool printRound) {
             break;
     }
 
-    printf("\n%s (%d %s) x %s (%d %s)", log->player1->name, stat1,
-        stat, log->player1->name, stat2, stat);
+    printf("%s (%d %s) vs. %s (%d %s)\n", log->player1->name, stat1,
+        stat, log->player2->name, stat2, stat);
 }
 
 /*-----------------------------------------------------------------------------*/
