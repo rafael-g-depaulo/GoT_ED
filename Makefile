@@ -11,12 +11,10 @@ OBJ		= $(SRC .c=.o)
 all: TrunfoGoT
 
 # executavel
-
 TrunfoGoT: $(HEADERS) $(SRC) $(OBJ)
 	$(CC) -g -o TrunfoGoT $(SRC) $(OBJ) -Wall
 
 # .o's
-
 arts.o: $(HEADERS) arts.c
 	$(CC) $(FLAGS) arts.c
 

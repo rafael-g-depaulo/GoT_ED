@@ -11,12 +11,25 @@
 
 #include <stdio.h>
 
-
+/**
+ * @brief imprime a arte do menu
+ * 
+ * printf simples que introduz o player ao jogo
+ */
 void print_ArtMenu();
 
+/**
+ * @brief imprime a arte de vitória
+ * 
+ * printf simples que mostra que o player venceu
+ */
 void print_ArtWin();
 
+/**
+ * @brief imprime a arte de derrota
+ * 
+ * printf simples que mostra que o player perdeu
+ */
 void print_ArtLose();
 
-
-#endif
+#endif /* _ARTES__H_ */

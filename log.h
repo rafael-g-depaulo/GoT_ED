@@ -1,6 +1,6 @@
 /**
  * @file list.h
- * @author Rafael G. de Paulo, Luthiery C. Cavalcante
+ * @author Rafael G. de Paulo
  * @date 27/11/17
  * 
  * @brief implementacao da estrutura auxiliar que guarda

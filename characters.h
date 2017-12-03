@@ -1,6 +1,6 @@
 /**
  * @file characters.h
- * @author Luthiery C. Cavalcante, Rafael G. de Paulo
+ * @author Luthiery C. Cavalcante
  * @date 22/11/17
  * 
  * @brief Arquivo contendo as funções e estruturas envolvendo os personagens do jogo.
@@ -19,12 +19,13 @@
  * @brief      A principal estrutura do jogo, que guarda as informações de cada carta.
  */
 typedef struct {
-	char* name;
-	char* house;
-	int agility;
-	int strength;
-	int intelligence;
-	int health;
+	char* name;			/**< o nome do personagem */
+	char* house;		/**< a casa a qual o personagem pertence */
+
+	int agility;		/**< o atributo agilidade do personagem */
+	int strength;		/**< o atributo forca do personagem */
+	int intelligence;	/**< o atributo inteligencia do personagem */
+	int health;			/**< o atributo energia(vida) do personagem */
 
 } Character;
 
@@ -32,19 +33,19 @@ typedef struct {
  * @brief      Enumeração dos atributos dos personagens.
  */
 typedef enum attributes {
-	AGILITY = 1,
-	STRENGTH,
-	INTELLIGENCE,
-	HEALTH	
+	AGILITY = 1,	/**< o atributo agilidade */
+	STRENGTH,		/**< o atributo forca */
+	INTELLIGENCE,	/**< o atributo inteligencia */
+	HEALTH			/**< o atributo energia(vida) */
 } Stat;
 
 /**
  * @brief      É a estrutura que representa a carta do jogador (P1) ao longo do torneio.
  */
 typedef struct {
-	Character* chr;
-	bool alive;
-	Stat last_used;
+	Character* chr;		/**< o personagem que o player controla*/
+	bool alive;			/**< se o player esta vivo ou morto*/
+	Stat last_used;		/**< o ultimo atributo usado pelo player em uma luta*/
 
 } t_player;
 
@@ -84,6 +85,15 @@ Character* character_create(char* _name, char* _house, int _agility, int _streng
  */
 lList* sorteia_personagens(lList* lista_personagens);
 
+/**
+ * @brief 		mostra para o player as opções de personagens, e retorna a escolha dele
+ * 
+ * Somente um atributo de cada personagem disponível (escolhido aleatóriamente) deve ser
+ * mostrado ao player.
+ * 
+ * @param lista_players	lista com os 16 presonagens possíveis 
+ * @return Character* 	referencia ao personagem escolhido
+ */
 Character* escolhe_personagem(lList* lista_players);
 
 /**

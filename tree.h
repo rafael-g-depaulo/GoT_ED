@@ -96,7 +96,4 @@ void printCharacter(Character* chr);
  */
 void add_characters(t_node* tree, lList* chars);
 
-/** EM DESENVOLVIMENTO ***************************/
-/** EM DESENVOLVIMENTO ***************************/
-
 #endif /* _TREE_H_ */

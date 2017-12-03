@@ -60,5 +60,4 @@ void fight_round(t_node* tree, t_player* p1, int round, lList* log_list);
  */
 void war(t_node* tree, t_player* p1, lList* log_list);
 
-
 #endif /* __FIGHT_H_ */
