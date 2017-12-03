@@ -9,10 +9,14 @@ HEADERS = $(wildcard *.h)
 all: TrunfoGoT
 
 # executavel
-TrunfoGoT: log.o fight.o characters.o lists.o tree.o $(HEADERS)
-	$(CC) -g -o trab2 main.c log.o fight.o characters.o lists.o tree.o -Wall
+TrunfoGoT: log.o fight.o characters.o lists.o tree.o arts.o $(HEADERS)
+	$(CC) -g -o trab2 main.c log.o fight.o characters.o lists.o tree.o arts.o -Wall
 
 # .o's
+
+arts.o: $(HEADERS) arts.c
+	$(CC) $(FLAGS) arts.c
+
 fight.o: $(HEADERS) fight.c
 	$(CC) $(FLAGS) fight.c
 

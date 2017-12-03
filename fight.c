@@ -7,6 +7,7 @@
 #include "characters.h"
 #include "tree.h"
 #include "fight.h"
+#include "arts.h"
 
 
 /*-----------------------------------------------------------------------------*/
@@ -64,6 +65,13 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 			NPC = no->left->character;
 
 		/* printar personagem e receber escolha de atributo */
+		if (round == 3) {
+			printf("SEMIFINAL:\n");
+		} else if (round == 4) {
+			printf("FINAL:\n");
+		} else {
+			printf("ROUND %d:\n", round);
+		}
 		print_player(p1, NPC);
 
 		/* escolha de atributo */
@@ -105,13 +113,13 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 
 		if (winner != p1->chr) {
 			p1->alive = false;
-			/* ARTEZINHA YOU LOSE */
+			print_ArtLose();
 			printf("\nYou died...\n");
 			printLog(log, false);
 			printf("%s da casa %s foi vitorioso\n\n", NPC->name, NPC->house);
 
 		} else {
-			/* ARTEZINHA YOU WIN */
+			print_ArtWin();
 		
 			if (round == 1) {
 				printf("\nVoce derrotou o inimigo, porém o inverno se aproxima, e a guerra também...\n");

@@ -6,6 +6,7 @@
 #include "characters.h"
 #include "tree.h"
 #include "fight.h"
+#include "arts.h"
 
 int main() {
 	
@@ -16,9 +17,9 @@ int main() {
 	do {
 
 		do {
-			/* ARTEZINHA MASSA DO PRINTF */
-			printf("[1] Start new game\n");
-			printf("[2] Quit\n");
+			print_ArtMenu();
+			printf("\t[1] Start new game\n");
+			printf("\t[2] Quit\n");
 			scanf("%d", &menu);
 
 		} while (menu != 1 && menu != 2);
