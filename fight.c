@@ -91,7 +91,7 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 		Character* winner = fight(no->left->character, no->right->character, atrib);
 
 		/* crie o log a guarde na lista */
-		t_log* log = create_log(p1->chr, NPC, round, atrib);
+		t_log* log = create_log(no->left->character, no->right->character, round, atrib);
 		lPush(log_list, log);
 
 		/* anuncie o resultado na tela */
@@ -106,7 +106,7 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 		if (winner != p1->chr) {
 			p1->alive = false;
 			/* ARTEZINHA YOU LOSE */
-			printf("\nYou're done...\n");
+			printf("\nYou died...\n");
 			printLog(log, false);
 			printf("%s da casa %s foi vitorioso\n\n", NPC->name, NPC->house);
 
@@ -168,20 +168,4 @@ void war(t_node* tree, t_player* p1, lList* log_list) {
 	if (p1->alive)
 		printf("%s da casa %s foi vitorioso e agora é o novo rei dos 7 reinos!\n",
 			   p1->chr->name, p1->chr->house);
-}
-
-/*-----------------------------------------------------------------------------*/
-void putChars_in_tree(lList* charList, t_node* tree) {
-
-	if (charList->size == 0)
-		return;
-
-	/* se é folha */
-	if (!(tree->left || tree->right)) {
-		tree->character = lPop(charList);
-	/* se não é folha */
-	} else {
-		putChars_in_tree(charList, tree->left);
-		putChars_in_tree(charList, tree->right);
-	}
 }

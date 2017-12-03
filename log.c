@@ -20,6 +20,10 @@ void show_log(lList* log_list) {
             printLog(log, false);
         }
     }
+
+    if (round != 4) {
+        printf("\nÉ uma pena que você não pode ver como isso acaba.\nAdeus...\n");
+    }
 }
 
 /*-----------------------------------------------------------------------------*/

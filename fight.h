@@ -60,12 +60,5 @@ void fight_round(t_node* tree, t_player* p1, int round, lList* log_list);
  */
 void war(t_node* tree, t_player* p1, lList* log_list);
 
-/**
- * @brief coloca os personagens que vão jogar no último nivel da árvore
- * 
- * @param charList  lista contendo os 16 personagens que vão jogar
- * @param tree      a arvore de 4 níveis na qual os personagens serão inseridos
- */
-void putChars_in_tree(lList* charList, t_node* tree);
 
 #endif /* __FIGHT_H_ */

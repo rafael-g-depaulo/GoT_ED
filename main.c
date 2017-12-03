@@ -53,7 +53,7 @@ int main() {
 		tree_free(torneio);
 
 		do {
-			printf("[1] Back to main menu\n");
+			printf("\n[1] Back to main menu\n");
 			printf("[2] Quit\n");
 			scanf("%d", &menu);
 		} while (menu != 1 && menu != 2);
