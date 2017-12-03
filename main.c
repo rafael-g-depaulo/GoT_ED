@@ -10,7 +10,7 @@
 
 int main() {
 	
-	// ler arquivo, criar a lista de personagens jogando e inicializar o player
+	/* ler arquivo, criar a lista de personagens jogando e inicializar o player */
 	lList* all_char_list = aloca_personagens();
 	
 	int menu;
@@ -30,24 +30,24 @@ int main() {
 		lList* playing_list = sorteia_personagens(all_char_list);
 		t_player* player1 = inicializa_player(escolhe_personagem(playing_list));
 
-		// criar e inicializar a arvore
+		/* criar e inicializar a arvore */
 		t_node* torneio = tree_create();
 	    
 	    lList* list_aux = aloca_list();
-	    listCopy(list_aux, playing_list);		//fazemos uma cópia da lista de personagens, pois a função add_characters
-		add_characters(torneio, list_aux);		//remove os elementos da lista enquanto os insere na árvore
-		libera_list(list_aux, 2);				//e não queremos que a lista original se perca, certo?
+	    listCopy(list_aux, playing_list);		/*fazemos uma cópia da lista de personagens, pois a função add_characters */
+		add_characters(torneio, list_aux);		/* remove os elementos da lista enquanto os insere na árvore */
+		libera_list(list_aux, 2);				/* e não queremos que a lista original se perca, certo? */
 
-		// criar a lista de logs (guarda o histórico da guerra)
+		/* criar a lista de logs (guarda o histórico da guerra) */
 		lList* log_list = aloca_list();
 
-		// chama guerra
+		/* chama guerra */
 		war(torneio, player1, log_list);
 
-		// mostra as lutas após a guerra acabar
+		/* mostra as lutas após a guerra acabar */
 		show_log(log_list);
 
-		// liberando memoria (e com sorte toda ela)
+		/* liberando memoria (e com sorte toda ela) */
 		free(player1);
 		libera_list(playing_list, 1);
 		libera_list(log_list, 3);

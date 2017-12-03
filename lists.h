@@ -41,7 +41,7 @@ typedef struct {
 } lList;
 
 
-// includes aqui, por causa de dependencias com as estruturas
+/* includes aqui, por causa de dependencias com as estruturas */
  #include "characters.h"
  #include "log.h"
 

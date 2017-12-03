@@ -14,7 +14,7 @@ void show_log(lList* log_list) {
         log = (t_log*) getDadoAtIndex(log_list, i);
 
         if (log->round != round) {
-            printLog(log, true);            // o booleano aqui diz se devemos imprimir antes em que round estamos ou não
+            printLog(log, true);            /* o booleano aqui diz se devemos imprimir antes em que round estamos ou não */
             round = log->round;
         } else {
             printLog(log, false);

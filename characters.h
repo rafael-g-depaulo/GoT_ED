@@ -49,7 +49,7 @@ typedef struct {
 
 } t_player;
 
-// includes aqui, por causa de dependencias com as estruturas
+/* includes aqui, por causa de dependencias com as estruturas */
 #include "lists.h"
 
 /**

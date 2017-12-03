@@ -32,7 +32,6 @@ void add_level(t_node* tree) {
 
 /*-----------------------------------------------------------------------------*/
 t_node* tree_create() {
-
     t_node* tree = node_create();
 
     int i;
@@ -87,7 +86,5 @@ void add_characters(t_node* tree, lList* chars) {
         add_characters(tree->right, chars);
     } else if (chars->size != 0) {
         tree->character = lPop(chars);
-    } else {
-        //printf("\nERRO: lista de personagens jogando de tamanho insuficiente...");
     }
 }
