@@ -22,6 +22,9 @@ int main() {
 			printf("\t[2] Quit\n");
 			scanf("%d", &menu);
 
+			char c;
+			while ( (c = getc(stdin)) != '\0' && c != EOF && c != '\n');
+
 		} while (menu != 1 && menu != 2);
 		if (menu == 2)
 			break;
@@ -34,7 +37,7 @@ int main() {
 		t_node* torneio = tree_create();
 	    
 	    lList* list_aux = aloca_list();
-	    listCopy(list_aux, playing_list);		/*fazemos uma cópia da lista de personagens, pois a função add_characters */
+	    listCopy(list_aux, playing_list);		/* fazemos uma cópia da lista de personagens, pois a função add_characters */
 		add_characters(torneio, list_aux);		/* remove os elementos da lista enquanto os insere na árvore */
 		libera_list(list_aux, 2);				/* e não queremos que a lista original se perca, certo? */
 
@@ -57,6 +60,9 @@ int main() {
 			printf("\n[1] Back to main menu\n");
 			printf("[2] Quit\n");
 			scanf("%d", &menu);
+
+			char c;
+			while ( (c = getc(stdin)) != '\0' && c != EOF && c != '\n');
 		} while (menu != 1 && menu != 2);
 
 	} while(menu == 1);
