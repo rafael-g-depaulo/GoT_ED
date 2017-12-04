@@ -25,6 +25,8 @@ int main() {
 			char c;
 			while ( (c = getc(stdin)) != '\0' && c != EOF && c != '\n');
 
+			system("clear");
+
 		} while (menu != 1 && menu != 2);
 		if (menu == 2)
 			break;
@@ -63,6 +65,9 @@ int main() {
 
 			char c;
 			while ( (c = getc(stdin)) != '\0' && c != EOF && c != '\n');
+
+			system("clear");
+			
 		} while (menu != 1 && menu != 2);
 
 	} while(menu == 1);

@@ -104,11 +104,11 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 
 		/* anuncie o resultado na tela */
 		if (round == 3) {
-			printf("SEMIFINAL:\n\n");
+			printf("\nSEMIFINAL:\n\n");
 		} else if (round == 4) {
-			printf("FINAL:\n\n");
+			printf("\nFINAL:\n\n");
 		} else {
-			printf("ROUND %d:\n\n", round);
+			printf("\nROUND %d:\n\n", round);
 		}
 
 		p1->last_used = (Stat) atrib;
@@ -144,6 +144,14 @@ void fight_node(t_node* no, t_player* p1, int round, lList* log_list) {
 			}
 
 			printLog(log, false);
+			
+			if (round != 4) {
+				printf("Pressione qualqer tecla pra continuar...");
+				char c;
+				while ( (c = getc(stdin)) != '\0' && c != EOF && c != '\n');
+				scanf("%*c");
+				system("clear");
+			}
 		}
 
 	/* caso seja uma luta de NPC's */

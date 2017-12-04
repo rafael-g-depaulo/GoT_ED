@@ -126,6 +126,8 @@ Character* escolhe_personagem(lList* lista_players) {
 		scanf("%d", &index_escolhido);
 	} while (index_escolhido <= 0 || index_escolhido > 16);
 
+	system("clear");
+	
 	return getDadoAtIndex(lista_players, index_escolhido-1);
 
 }
